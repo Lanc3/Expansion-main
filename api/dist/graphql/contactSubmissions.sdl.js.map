@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/contactSubmissions.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type ContactSubmission {\r\n    id: Int!\r\n    name: String!\r\n    email: String!\r\n    company: String\r\n    phone: String\r\n    budget: String\r\n    timeline: String\r\n    projectDescription: String!\r\n    serviceInterest: String\r\n    howFound: String\r\n    status: String!\r\n    notes: String\r\n    createdAt: DateTime!\r\n    updatedAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    contactSubmissions: [ContactSubmission!]! @requireAuth\r\n    contactSubmission(id: Int!): ContactSubmission @requireAuth\r\n  }\r\n\r\n  input CreateContactSubmissionInput {\r\n    name: String!\r\n    email: String!\r\n    company: String\r\n    phone: String\r\n    budget: String\r\n    timeline: String\r\n    projectDescription: String!\r\n    serviceInterest: String\r\n    howFound: String\r\n  }\r\n\r\n  input UpdateContactSubmissionInput {\r\n    status: String\r\n    notes: String\r\n  }\r\n\r\n  type Mutation {\r\n    createContactSubmission(\r\n      input: CreateContactSubmissionInput!\r\n    ): ContactSubmission! @skipAuth\r\n    updateContactSubmission(\r\n      id: Int!\r\n      input: UpdateContactSubmissionInput!\r\n    ): ContactSubmission! @requireAuth\r\n    deleteContactSubmission(id: Int!): ContactSubmission! @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

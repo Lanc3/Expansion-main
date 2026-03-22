@@ -1,0 +1,445 @@
+/**
+ * START --- SETUP TAILWINDCSS EDIT
+ *
+ * `yarn rw setup ui tailwindcss` placed these imports here
+ * to inject Tailwind's styles into your CSS.
+ * For more information, see: https://tailwindcss.com/docs/installation#include-tailwind-in-your-css
+ */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+/**
+ * END --- SETUP TAILWINDCSS EDIT
+ */
+
+/* Holographic Theme - Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&family=Fira+Code:wght@400;600&display=swap');
+
+/* CSS Custom Properties */
+:root {
+  --bg-void: #000000;
+  --neon-primary: #FF5C00;
+  --neon-secondary: #E63900;
+  --neon-accent: #FF9500;
+  --glass-bg: rgba(15, 5, 0, 0.6);
+  --glass-border: rgba(255, 92, 0, 0.15);
+  --glass-bg-raised: rgba(20, 8, 0, 0.75);
+  --glass-bg-overlay: rgba(10, 3, 0, 0.9);
+}
+
+/* Smooth scroll with reduced-motion respect */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Global body styles */
+body {
+  background-color: var(--bg-void);
+  color: #e2e8f0;
+  font-family: 'Space Grotesk', sans-serif;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* App wrapper with radial gradient backgrounds */
+.app-wrapper {
+  background-color: var(--bg-void);
+  background-image:
+    radial-gradient(circle at 15% 50%, rgba(230, 57, 0, 0.08), transparent 30%),
+    radial-gradient(circle at 85% 30%, rgba(255, 92, 0, 0.08), transparent 30%);
+}
+
+.font-mono {
+  font-family: 'Fira Code', monospace;
+}
+
+/* ============================================
+   ELEVATION SYSTEM
+   ============================================ */
+
+@layer components {
+  /* Base surface - cards, sections */
+  .surface {
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+  }
+
+  /* Raised surface - interactive cards, dropdowns */
+  .surface-raised {
+    background: var(--glass-bg-raised);
+    border: 1px solid rgba(255, 92, 0, 0.2);
+    border-radius: 16px;
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.3),
+      0 0 1px rgba(255, 92, 0, 0.1);
+  }
+
+  /* Overlay surface - modals, command palette */
+  .surface-overlay {
+    background: var(--glass-bg-overlay);
+    border: 1px solid rgba(255, 92, 0, 0.25);
+    border-radius: 16px;
+    box-shadow:
+      0 24px 48px rgba(0, 0, 0, 0.5),
+      0 0 1px rgba(255, 92, 0, 0.15);
+  }
+
+  /* Gradient border utility */
+  .gradient-border {
+    position: relative;
+    border: none;
+    background-clip: padding-box;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, var(--neon-primary), var(--neon-accent), var(--neon-secondary));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  /* Skeleton shimmer base */
+  .skeleton {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 92, 0, 0.03) 25%,
+      rgba(255, 92, 0, 0.08) 50%,
+      rgba(255, 92, 0, 0.03) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer-skeleton 1.5s ease-in-out infinite;
+    border-radius: 8px;
+  }
+
+  /* Skip-to-content link */
+  .skip-to-content {
+    position: fixed;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    padding: 0.75rem 1.5rem;
+    background: var(--neon-primary);
+    color: #000;
+    font-weight: 700;
+    border-radius: 0 0 8px 8px;
+    transition: top 0.2s ease;
+  }
+
+  .skip-to-content:focus {
+    top: 0;
+    outline: 2px solid var(--neon-accent);
+    outline-offset: 2px;
+  }
+}
+
+/* ============================================
+   HOLOGRAPHIC GLASS PANEL (with noise texture)
+   ============================================ */
+
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Noise grain overlay for tactile depth */
+.glass-panel::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 128px 128px;
+  pointer-events: none;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+/* Reduce blur on mobile for performance */
+@media (max-width: 640px) {
+  .glass-panel {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+}
+
+/* Shimmer sweep on hover */
+.glass-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.03), transparent);
+  transform: skewX(-20deg);
+  transition: 0.5s;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.glass-panel:hover::before {
+  left: 150%;
+}
+
+/* Disable shimmer on touch devices */
+@media (hover: none) {
+  .glass-panel::before {
+    display: none;
+  }
+}
+
+/* ============================================
+   TEXT EFFECTS
+   ============================================ */
+
+.text-glow-primary {
+  text-shadow: 0 0 15px rgba(255, 92, 0, 0.6);
+}
+
+.gradient-text {
+  background: linear-gradient(to right, var(--neon-primary), #FF9500, var(--neon-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  background-size: 200% auto;
+  animation: gradient-shift 5s linear infinite;
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes shimmer-skeleton {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ============================================
+   FOCUS-VISIBLE SYSTEM
+   ============================================ */
+
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 2px solid rgba(255, 92, 0, 0.6);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid var(--neon-primary);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 4px rgba(255, 92, 0, 0.15);
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  border-color: var(--neon-primary) !important;
+  box-shadow: 0 0 0 3px rgba(255, 92, 0, 0.2) !important;
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .gradient-text {
+    animation: none;
+  }
+
+  .glass-panel::before {
+    display: none;
+  }
+}
+
+/* ============================================
+   CUSTOM SCROLLBAR
+   ============================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 92, 0, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon-primary);
+}
+
+/* ============================================
+   AUTH PAGES DARK THEME OVERRIDES
+   ============================================ */
+
+.app-wrapper .rw-login-container,
+.app-wrapper .rw-scaffold {
+  background-color: transparent !important;
+}
+
+.app-wrapper .rw-segment {
+  background: var(--glass-bg) !important;
+  border-color: var(--glass-border) !important;
+  backdrop-filter: blur(16px);
+}
+
+.app-wrapper .rw-segment-header {
+  background: rgba(255, 92, 0, 0.1) !important;
+  color: #e2e8f0 !important;
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.app-wrapper .rw-segment-main {
+  background: transparent !important;
+}
+
+.app-wrapper .rw-label {
+  color: #e2e8f0 !important;
+}
+
+.app-wrapper .rw-input {
+  background: rgba(15, 5, 0, 0.8) !important;
+  border-color: var(--glass-border) !important;
+  color: #e2e8f0 !important;
+}
+
+.app-wrapper .rw-input::placeholder {
+  color: #94a3b8 !important;
+}
+
+.app-wrapper .rw-input:focus {
+  border-color: var(--neon-primary) !important;
+  box-shadow: 0 0 0 2px rgba(255, 92, 0, 0.2) !important;
+}
+
+.app-wrapper .rw-forgot-link {
+  color: #94a3b8 !important;
+}
+
+.app-wrapper .rw-forgot-link:hover {
+  color: var(--neon-primary) !important;
+}
+
+.app-wrapper .rw-button.rw-button-blue {
+  background: transparent !important;
+  border: 2px solid var(--neon-primary) !important;
+  color: var(--neon-primary) !important;
+}
+
+.app-wrapper .rw-button.rw-button-blue:hover {
+  background: rgba(255, 92, 0, 0.2) !important;
+  box-shadow: 0 0 15px rgba(255, 92, 0, 0.3) !important;
+}
+
+.app-wrapper .rw-login-container {
+  width: 100%;
+  max-width: 24rem;
+  margin: 4rem auto;
+  padding: 0 1rem;
+}
+
+.app-wrapper .rw-login-link {
+  color: #94a3b8 !important;
+}
+
+.app-wrapper .rw-login-link .rw-link {
+  color: var(--neon-primary) !important;
+}
+
+.app-wrapper .rw-login-link .rw-link:hover {
+  color: var(--neon-secondary) !important;
+  text-decoration: underline;
+}
+
+.app-wrapper .rw-toast {
+  background: var(--glass-bg-overlay) !important;
+  border: 1px solid rgba(255, 92, 0, 0.25) !important;
+  color: #e2e8f0 !important;
+  backdrop-filter: blur(16px);
+  border-radius: 12px !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4) !important;
+}
+
+/* Admin/Scaffold dark theme */
+.app-wrapper .rw-scaffold {
+  background: transparent !important;
+  color: #e2e8f0 !important;
+}
+
+.app-wrapper .rw-table td,
+.app-wrapper .rw-table th {
+  background: var(--glass-bg) !important;
+  color: #e2e8f0 !important;
+  border-color: var(--glass-border) !important;
+}
+
+.app-wrapper .rw-table thead th {
+  background: rgba(255, 92, 0, 0.1) !important;
+  color: var(--neon-primary) !important;
+}
+
+.app-wrapper .rw-table tbody tr:nth-child(odd) td {
+  background: rgba(15, 5, 0, 0.4) !important;
+}
+
+/* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--neon-primary), var(--neon-accent), var(--neon-secondary));
+  z-index: 9999;
+  transform-origin: left;
+  pointer-events: none;
+}

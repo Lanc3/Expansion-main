@@ -1,0 +1,25 @@
+/*! ../../../components/Admin/PricingTier/PricingTierForm/PricingTierForm */
+
+/*! @redwoodjs/forms */
+
+/*! @redwoodjs/router */
+
+/*! @redwoodjs/web */
+
+/*! @redwoodjs/web/toast */
+
+/*! core-js/modules/es.array.push.js */
+
+/*! graphql-tag */
+
+/*! react */
+
+/*! react-hook-form */
+
+/*!******************************************************************!*\
+  !*** ./src/pages/Admin/NewPricingTierPage/NewPricingTierPage.js ***!
+  \******************************************************************/
+
+/*!*****************************************************************************!*\
+  !*** ./src/components/Admin/PricingTier/PricingTierForm/PricingTierForm.js ***!
+  \*****************************************************************************/

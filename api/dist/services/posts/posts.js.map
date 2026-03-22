@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/services/posts/posts.js"],
+  "sourcesContent": ["import { db } from 'src/lib/db'\n\nexport const posts = () => {\n  return db.post.findMany()\n}\n\nexport const post = ({ id }) => {\n  return db.post.findUnique({\n    where: { id },\n  })\n}\n\nexport const createPost = ({ input }) => {\n  return db.post.create({\n    data: input,\n  })\n}\n\nexport const updatePost = ({ id, input }) => {\n  return db.post.update({\n    data: input,\n    where: { id },\n  })\n}\n\nexport const deletePost = ({ id }) => {\n  return db.post.delete({\n    where: { id },\n  })\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;;;;;;;;;gBAAW;AAEJ,MAAMA,QAAQA,MAAM;AACzB,SAAOC,aAAGC,KAAKC,SAAS;AAC1B;AAEO,MAAMD,OAAOA,CAAC;EAAEE;AAAG,MAAM;AAC9B,SAAOH,aAAGC,KAAKG,WAAW;IACxBC,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;AAEO,MAAMG,aAAaA,CAAC;EAAEC;AAAM,MAAM;AACvC,SAAOP,aAAGC,KAAKO,OAAO;IACpBC,MAAMF;EACR,CAAC;AACH;AAEO,MAAMG,aAAaA,CAAC;EAAEP;EAAII;AAAM,MAAM;AAC3C,SAAOP,aAAGC,KAAKU,OAAO;IACpBF,MAAMF;IACNF,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;AAEO,MAAMS,aAAaA,CAAC;EAAET;AAAG,MAAM;AACpC,SAAOH,aAAGC,KAAKY,OAAO;IACpBR,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;",
+  "names": ["posts", "db", "post", "findMany", "id", "findUnique", "where", "createPost", "input", "create", "data", "updatePost", "update", "deletePost", "delete"]
+}

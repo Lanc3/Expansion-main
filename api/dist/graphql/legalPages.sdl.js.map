@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/legalPages.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type LegalPage {\r\n    id: Int!\r\n    slug: String!\r\n    title: String!\r\n    body: String!\r\n    isActive: Boolean!\r\n    updatedAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    legalPages: [LegalPage!]! @requireAuth\r\n    legalPage(id: Int!): LegalPage @requireAuth\r\n    legalPageBySlug(slug: String!): LegalPage @skipAuth\r\n  }\r\n\r\n  input CreateLegalPageInput {\r\n    slug: String!\r\n    title: String!\r\n    body: String!\r\n    isActive: Boolean\r\n  }\r\n\r\n  input UpdateLegalPageInput {\r\n    slug: String\r\n    title: String\r\n    body: String\r\n    isActive: Boolean\r\n  }\r\n\r\n  type Mutation {\r\n    createLegalPage(input: CreateLegalPageInput!): LegalPage! @requireAuth\r\n    updateLegalPage(id: Int!, input: UpdateLegalPageInput!): LegalPage!\r\n      @requireAuth\r\n    deleteLegalPage(id: Int!): LegalPage! @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

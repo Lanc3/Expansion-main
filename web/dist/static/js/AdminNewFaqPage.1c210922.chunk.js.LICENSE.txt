@@ -1,0 +1,25 @@
+/*! ../../../components/Admin/Faq/FaqForm/FaqForm */
+
+/*! @redwoodjs/forms */
+
+/*! @redwoodjs/router */
+
+/*! @redwoodjs/web */
+
+/*! @redwoodjs/web/toast */
+
+/*! core-js/modules/es.array.push.js */
+
+/*! graphql-tag */
+
+/*! react */
+
+/*! react-hook-form */
+
+/*!**************************************************!*\
+  !*** ./src/pages/Admin/NewFaqPage/NewFaqPage.js ***!
+  \**************************************************/
+
+/*!*****************************************************!*\
+  !*** ./src/components/Admin/Faq/FaqForm/FaqForm.js ***!
+  \*****************************************************/

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/newsletterSubscribers.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type NewsletterSubscriber {\r\n    id: Int!\r\n    email: String!\r\n    isActive: Boolean!\r\n    createdAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    newsletterSubscribers: [NewsletterSubscriber!]! @requireAuth\r\n    newsletterSubscriber(id: Int!): NewsletterSubscriber @requireAuth\r\n  }\r\n\r\n  input CreateNewsletterSubscriberInput {\r\n    email: String!\r\n  }\r\n\r\n  input UpdateNewsletterSubscriberInput {\r\n    isActive: Boolean\r\n  }\r\n\r\n  type Mutation {\r\n    createNewsletterSubscriber(\r\n      input: CreateNewsletterSubscriberInput!\r\n    ): NewsletterSubscriber! @skipAuth\r\n    updateNewsletterSubscriber(\r\n      id: Int!\r\n      input: UpdateNewsletterSubscriberInput!\r\n    ): NewsletterSubscriber! @requireAuth\r\n    deleteNewsletterSubscriber(id: Int!): NewsletterSubscriber! @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

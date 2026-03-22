@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/services/projectDatas/projectDatas.js"],
+  "sourcesContent": ["import { db } from 'src/lib/db'\n\nexport const projectDatas = () => {\n  return db.projectData.findMany()\n}\n\nexport const projectData = ({ id }) => {\n  return db.projectData.findUnique({\n    where: { id },\n  })\n}\n\nexport const createProjectData = ({ input }) => {\n  return db.projectData.create({\n    data: input,\n  })\n}\n\nexport const updateProjectData = ({ id, input }) => {\n  return db.projectData.update({\n    data: input,\n    where: { id },\n  })\n}\n\nexport const deleteProjectData = ({ id }) => {\n  return db.projectData.delete({\n    where: { id },\n  })\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;;;;;;;;;gBAAW;AAEJ,MAAMA,eAAeA,MAAM;AAChC,SAAOC,aAAGC,YAAYC,SAAS;AACjC;AAEO,MAAMD,cAAcA,CAAC;EAAEE;AAAG,MAAM;AACrC,SAAOH,aAAGC,YAAYG,WAAW;IAC/BC,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;AAEO,MAAMG,oBAAoBA,CAAC;EAAEC;AAAM,MAAM;AAC9C,SAAOP,aAAGC,YAAYO,OAAO;IAC3BC,MAAMF;EACR,CAAC;AACH;AAEO,MAAMG,oBAAoBA,CAAC;EAAEP;EAAII;AAAM,MAAM;AAClD,SAAOP,aAAGC,YAAYU,OAAO;IAC3BF,MAAMF;IACNF,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;AAEO,MAAMS,oBAAoBA,CAAC;EAAET;AAAG,MAAM;AAC3C,SAAOH,aAAGC,YAAYY,OAAO;IAC3BR,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;",
+  "names": ["projectDatas", "db", "projectData", "findMany", "id", "findUnique", "where", "createProjectData", "input", "create", "data", "updateProjectData", "update", "deleteProjectData", "delete"]
+}

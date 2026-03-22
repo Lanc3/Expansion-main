@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/teamMembers.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type TeamMember {\r\n    id: Int!\r\n    name: String!\r\n    role: String!\r\n    bio: String!\r\n    image: String\r\n    linkedin: String\r\n    github: String\r\n    email: String\r\n    order: Int!\r\n    isActive: Boolean!\r\n    createdAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    teamMembers: [TeamMember!]! @skipAuth\r\n    teamMember(id: Int!): TeamMember @requireAuth\r\n  }\r\n\r\n  input CreateTeamMemberInput {\r\n    name: String!\r\n    role: String!\r\n    bio: String!\r\n    image: String\r\n    linkedin: String\r\n    github: String\r\n    email: String\r\n    order: Int!\r\n    isActive: Boolean!\r\n  }\r\n\r\n  input UpdateTeamMemberInput {\r\n    name: String\r\n    role: String\r\n    bio: String\r\n    image: String\r\n    linkedin: String\r\n    github: String\r\n    email: String\r\n    order: Int\r\n    isActive: Boolean\r\n  }\r\n\r\n  type Mutation {\r\n    createTeamMember(input: CreateTeamMemberInput!): TeamMember! @requireAuth\r\n    updateTeamMember(id: Int!, input: UpdateTeamMemberInput!): TeamMember!\r\n      @requireAuth\r\n    deleteTeamMember(id: Int!): TeamMember! @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

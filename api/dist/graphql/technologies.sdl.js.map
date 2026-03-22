@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/technologies.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type Technology {\r\n    id: Int!\r\n    name: String!\r\n    icon: String!\r\n    category: String!\r\n    proficiency: String!\r\n    order: Int!\r\n    isActive: Boolean!\r\n    createdAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    technologies: [Technology!]! @skipAuth\r\n    technology(id: Int!): Technology @requireAuth\r\n  }\r\n\r\n  input CreateTechnologyInput {\r\n    name: String!\r\n    icon: String!\r\n    category: String!\r\n    proficiency: String!\r\n    order: Int\r\n    isActive: Boolean\r\n  }\r\n\r\n  input UpdateTechnologyInput {\r\n    name: String\r\n    icon: String\r\n    category: String\r\n    proficiency: String\r\n    order: Int\r\n    isActive: Boolean\r\n  }\r\n\r\n  type Mutation {\r\n    createTechnology(input: CreateTechnologyInput!): Technology! @requireAuth\r\n    updateTechnology(id: Int!, input: UpdateTechnologyInput!): Technology!\r\n      @requireAuth\r\n    deleteTechnology(id: Int!): Technology! @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

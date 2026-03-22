@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/pricingTiers.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type PricingTier {\r\n    id: Int!\r\n    name: String!\r\n    description: String!\r\n    features: String!\r\n    price: String!\r\n    unit: String!\r\n    isPopular: Boolean!\r\n    ctaText: String!\r\n    order: Int!\r\n    isActive: Boolean!\r\n    createdAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    pricingTiers: [PricingTier!]! @skipAuth\r\n    pricingTier(id: Int!): PricingTier @requireAuth\r\n  }\r\n\r\n  input CreatePricingTierInput {\r\n    name: String!\r\n    description: String!\r\n    features: String!\r\n    price: String!\r\n    unit: String!\r\n    isPopular: Boolean!\r\n    ctaText: String!\r\n    order: Int!\r\n    isActive: Boolean!\r\n  }\r\n\r\n  input UpdatePricingTierInput {\r\n    name: String\r\n    description: String\r\n    features: String\r\n    price: String\r\n    unit: String\r\n    isPopular: Boolean\r\n    ctaText: String\r\n    order: Int\r\n    isActive: Boolean\r\n  }\r\n\r\n  type Mutation {\r\n    createPricingTier(input: CreatePricingTierInput!): PricingTier! @requireAuth\r\n    updatePricingTier(id: Int!, input: UpdatePricingTierInput!): PricingTier!\r\n      @requireAuth\r\n    deletePricingTier(id: Int!): PricingTier! @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

@@ -1,0 +1,25 @@
+/*! ../../../components/Admin/LegalPage/LegalPageForm/LegalPageForm */
+
+/*! @redwoodjs/forms */
+
+/*! @redwoodjs/router */
+
+/*! @redwoodjs/web */
+
+/*! @redwoodjs/web/toast */
+
+/*! core-js/modules/es.array.push.js */
+
+/*! graphql-tag */
+
+/*! react */
+
+/*! react-hook-form */
+
+/*!**************************************************************!*\
+  !*** ./src/pages/Admin/NewLegalPagePage/NewLegalPagePage.js ***!
+  \**************************************************************/
+
+/*!***********************************************************************!*\
+  !*** ./src/components/Admin/LegalPage/LegalPageForm/LegalPageForm.js ***!
+  \***********************************************************************/

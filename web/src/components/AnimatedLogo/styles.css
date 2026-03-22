@@ -1,0 +1,7 @@
+.example {
+  width: 80%;
+  height: min-content;
+  stroke: #06176d;
+  padding: 4%;
+  border: 1px solid #eaeef5;
+}

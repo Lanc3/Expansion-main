@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/services.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type Service {\r\n    id: Int!\r\n    title: String!\r\n    slug: String!\r\n    shortDescription: String!\r\n    fullDescription: String!\r\n    icon: String!\r\n    image: String\r\n    order: Int!\r\n    isActive: Boolean!\r\n    createdAt: DateTime!\r\n    updatedAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    services: [Service!]! @skipAuth\r\n    service(id: Int!): Service @requireAuth\r\n    serviceBySlug(slug: String!): Service @skipAuth\r\n    activeServices: [Service!]! @skipAuth\r\n  }\r\n\r\n  input CreateServiceInput {\r\n    title: String!\r\n    slug: String!\r\n    shortDescription: String!\r\n    fullDescription: String!\r\n    icon: String!\r\n    image: String\r\n    order: Int\r\n    isActive: Boolean\r\n  }\r\n\r\n  input UpdateServiceInput {\r\n    title: String\r\n    slug: String\r\n    shortDescription: String\r\n    fullDescription: String\r\n    icon: String\r\n    image: String\r\n    order: Int\r\n    isActive: Boolean\r\n  }\r\n\r\n  type Mutation {\r\n    createService(input: CreateServiceInput!): Service! @requireAuth\r\n    updateService(id: Int!, input: UpdateServiceInput!): Service! @requireAuth\r\n    deleteService(id: Int!): Service! @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

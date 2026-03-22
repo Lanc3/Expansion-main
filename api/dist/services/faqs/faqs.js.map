@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/services/faqs/faqs.js"],
+  "sourcesContent": ["import { db } from 'src/lib/db'\r\n\r\nexport const faqs = () => {\r\n  return db.faq.findMany({\r\n    orderBy: { order: 'asc' },\r\n  })\r\n}\r\n\r\nexport const faq = ({ id }) => {\r\n  return db.faq.findUnique({\r\n    where: { id },\r\n  })\r\n}\r\n\r\nexport const createFaq = ({ input }) => {\r\n  return db.faq.create({\r\n    data: input,\r\n  })\r\n}\r\n\r\nexport const updateFaq = ({ id, input }) => {\r\n  return db.faq.update({\r\n    data: input,\r\n    where: { id },\r\n  })\r\n}\r\n\r\nexport const deleteFaq = ({ id }) => {\r\n  return db.faq.delete({\r\n    where: { id },\r\n  })\r\n}\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;;;;;;;;;gBAAW;AAEJ,MAAMA,OAAOA,MAAM;AACxB,SAAOC,aAAGC,IAAIC,SAAS;IACrBC,SAAS;MAAEC,OAAO;IAAM;EAC1B,CAAC;AACH;AAEO,MAAMH,MAAMA,CAAC;EAAEI;AAAG,MAAM;AAC7B,SAAOL,aAAGC,IAAIK,WAAW;IACvBC,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;AAEO,MAAMG,YAAYA,CAAC;EAAEC;AAAM,MAAM;AACtC,SAAOT,aAAGC,IAAIS,OAAO;IACnBC,MAAMF;EACR,CAAC;AACH;AAEO,MAAMG,YAAYA,CAAC;EAAEP;EAAII;AAAM,MAAM;AAC1C,SAAOT,aAAGC,IAAIY,OAAO;IACnBF,MAAMF;IACNF,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;AAEO,MAAMS,YAAYA,CAAC;EAAET;AAAG,MAAM;AACnC,SAAOL,aAAGC,IAAIc,OAAO;IACnBR,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;",
+  "names": ["faqs", "db", "faq", "findMany", "orderBy", "order", "id", "findUnique", "where", "createFaq", "input", "create", "data", "updateFaq", "update", "deleteFaq", "delete"]
+}

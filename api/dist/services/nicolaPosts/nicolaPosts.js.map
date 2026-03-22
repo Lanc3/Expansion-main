@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../src/services/nicolaPosts/nicolaPosts.js"],
+  "sourcesContent": ["import { db } from 'src/lib/db'\n\nexport const nicolaPosts = () => {\n  return db.nicolaPost.findMany()\n}\n\nexport const nicolaPost = ({ id }) => {\n  return db.nicolaPost.findUnique({\n    where: { id },\n  })\n}\n\nexport const createNicolaPost = ({ input }) => {\n  return db.nicolaPost.create({\n    data: input,\n  })\n}\n\nexport const updateNicolaPost = ({ id, input }) => {\n  return db.nicolaPost.update({\n    data: input,\n    where: { id },\n  })\n}\n\nexport const deleteNicolaPost = ({ id }) => {\n  return db.nicolaPost.delete({\n    where: { id },\n  })\n}\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;;;;;;;;;gBAAW;AAEJ,MAAMA,cAAcA,MAAM;AAC/B,SAAOC,aAAGC,WAAWC,SAAS;AAChC;AAEO,MAAMD,aAAaA,CAAC;EAAEE;AAAG,MAAM;AACpC,SAAOH,aAAGC,WAAWG,WAAW;IAC9BC,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;AAEO,MAAMG,mBAAmBA,CAAC;EAAEC;AAAM,MAAM;AAC7C,SAAOP,aAAGC,WAAWO,OAAO;IAC1BC,MAAMF;EACR,CAAC;AACH;AAEO,MAAMG,mBAAmBA,CAAC;EAAEP;EAAII;AAAM,MAAM;AACjD,SAAOP,aAAGC,WAAWU,OAAO;IAC1BF,MAAMF;IACNF,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;AAEO,MAAMS,mBAAmBA,CAAC;EAAET;AAAG,MAAM;AAC1C,SAAOH,aAAGC,WAAWY,OAAO;IAC1BR,OAAO;MAAEF;IAAG;EACd,CAAC;AACH;",
+  "names": ["nicolaPosts", "db", "nicolaPost", "findMany", "id", "findUnique", "where", "createNicolaPost", "input", "create", "data", "updateNicolaPost", "update", "deleteNicolaPost", "delete"]
+}

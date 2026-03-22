@@ -1,0 +1,5 @@
+> db.user.update({ where: { id: 1 } , data: { roles: 'admin' } })
+db.user.update({ where: { id: 1 } , data: { roles: 'admin' } })
+db.user.update({ where: { id: 2 } , data: { roles: 'admin' } })
+db.user.update({ where: { id: 1 } , data: { roles: 'admin' } })
+db.user.update({ where: { id: 2 } , data: { roles: 'admin' } })

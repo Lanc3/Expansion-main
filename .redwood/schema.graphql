@@ -1,0 +1,586 @@
+"""
+Use to check whether or not a user is authenticated and is associated
+with an optional set of roles.
+"""
+directive @requireAuth(roles: [String]) on FIELD_DEFINITION
+
+"""Use to skip authentication checks and allow public access."""
+directive @skipAuth on FIELD_DEFINITION
+
+scalar BigInt
+
+type ClientLogo {
+  createdAt: DateTime!
+  id: Int!
+  isActive: Boolean!
+  logoUrl: String!
+  name: String!
+  order: Int!
+  websiteUrl: String
+}
+
+type ContactSubmission {
+  budget: String
+  company: String
+  createdAt: DateTime!
+  email: String!
+  howFound: String
+  id: Int!
+  name: String!
+  notes: String
+  phone: String
+  projectDescription: String!
+  serviceInterest: String
+  status: String!
+  timeline: String
+  updatedAt: DateTime!
+}
+
+input CreateClientLogoInput {
+  isActive: Boolean
+  logoUrl: String!
+  name: String!
+  order: Int
+  websiteUrl: String
+}
+
+input CreateContactSubmissionInput {
+  budget: String
+  company: String
+  email: String!
+  howFound: String
+  name: String!
+  phone: String
+  projectDescription: String!
+  serviceInterest: String
+  timeline: String
+}
+
+input CreateFaqInput {
+  answer: String!
+  category: String!
+  isActive: Boolean!
+  order: Int!
+  question: String!
+}
+
+input CreateLegalPageInput {
+  body: String!
+  isActive: Boolean
+  slug: String!
+  title: String!
+}
+
+input CreateNewsletterSubscriberInput {
+  email: String!
+}
+
+input CreateNicolaPostInput {
+  Image: String
+  body: String!
+  likeAmount: Int!
+  title: String!
+}
+
+input CreatePostInput {
+  Image: String
+  body: String!
+  likeAmount: Int!
+  title: String!
+}
+
+input CreatePricingTierInput {
+  ctaText: String!
+  description: String!
+  features: String!
+  isActive: Boolean!
+  isPopular: Boolean!
+  name: String!
+  order: Int!
+  price: String!
+  unit: String!
+}
+
+input CreateProcessStepInput {
+  description: String!
+  icon: String!
+  isActive: Boolean!
+  order: Int!
+  title: String!
+}
+
+input CreateProjectDataInput {
+  body: String!
+  by: String!
+  category: String!
+  challenge: String
+  clientName: String!
+  clientWebsite: String!
+  featured: Boolean
+  image: String!
+  metrics: String
+  objective: String!
+  results: String
+  solution: String
+  title: String!
+  tools: String!
+  video: String!
+}
+
+input CreateServiceInput {
+  fullDescription: String!
+  icon: String!
+  image: String
+  isActive: Boolean
+  order: Int
+  shortDescription: String!
+  slug: String!
+  title: String!
+}
+
+input CreateSiteSettingInput {
+  fieldType: String!
+  group: String!
+  key: String!
+  label: String!
+  value: String!
+}
+
+input CreateTeamMemberInput {
+  bio: String!
+  email: String
+  github: String
+  image: String
+  isActive: Boolean!
+  linkedin: String
+  name: String!
+  order: Int!
+  role: String!
+}
+
+input CreateTechnologyInput {
+  category: String!
+  icon: String!
+  isActive: Boolean
+  name: String!
+  order: Int
+  proficiency: String!
+}
+
+input CreateTestimonialInput {
+  clientCompany: String!
+  clientImage: String
+  clientName: String!
+  clientTitle: String!
+  isActive: Boolean!
+  order: Int!
+  projectUrl: String
+  quote: String!
+  rating: Int!
+}
+
+scalar Date
+
+scalar DateTime
+
+type Faq {
+  answer: String!
+  category: String!
+  createdAt: DateTime!
+  id: Int!
+  isActive: Boolean!
+  order: Int!
+  question: String!
+}
+
+scalar JSON
+
+scalar JSONObject
+
+type LegalPage {
+  body: String!
+  id: Int!
+  isActive: Boolean!
+  slug: String!
+  title: String!
+  updatedAt: DateTime!
+}
+
+type Mutation {
+  bulkUpdateSiteSettings(input: [UpdateSiteSettingInput!]!): [SiteSetting!]!
+  createClientLogo(input: CreateClientLogoInput!): ClientLogo!
+  createContactSubmission(input: CreateContactSubmissionInput!): ContactSubmission!
+  createFaq(input: CreateFaqInput!): Faq!
+  createLegalPage(input: CreateLegalPageInput!): LegalPage!
+  createNewsletterSubscriber(input: CreateNewsletterSubscriberInput!): NewsletterSubscriber!
+  createNicolaPost(input: CreateNicolaPostInput!): NicolaPost!
+  createPost(input: CreatePostInput!): Post!
+  createPricingTier(input: CreatePricingTierInput!): PricingTier!
+  createProcessStep(input: CreateProcessStepInput!): ProcessStep!
+  createProjectData(input: CreateProjectDataInput!): ProjectData!
+  createService(input: CreateServiceInput!): Service!
+  createSiteSetting(input: CreateSiteSettingInput!): SiteSetting!
+  createTeamMember(input: CreateTeamMemberInput!): TeamMember!
+  createTechnology(input: CreateTechnologyInput!): Technology!
+  createTestimonial(input: CreateTestimonialInput!): Testimonial!
+  deleteClientLogo(id: Int!): ClientLogo!
+  deleteContactSubmission(id: Int!): ContactSubmission!
+  deleteFaq(id: Int!): Faq!
+  deleteLegalPage(id: Int!): LegalPage!
+  deleteNewsletterSubscriber(id: Int!): NewsletterSubscriber!
+  deleteNicolaPost(id: Int!): NicolaPost!
+  deletePost(id: Int!): Post!
+  deletePricingTier(id: Int!): PricingTier!
+  deleteProcessStep(id: Int!): ProcessStep!
+  deleteProjectData(id: Int!): ProjectData!
+  deleteService(id: Int!): Service!
+  deleteSiteSetting(id: Int!): SiteSetting!
+  deleteTeamMember(id: Int!): TeamMember!
+  deleteTechnology(id: Int!): Technology!
+  deleteTestimonial(id: Int!): Testimonial!
+  updateClientLogo(id: Int!, input: UpdateClientLogoInput!): ClientLogo!
+  updateContactSubmission(id: Int!, input: UpdateContactSubmissionInput!): ContactSubmission!
+  updateFaq(id: Int!, input: UpdateFaqInput!): Faq!
+  updateLegalPage(id: Int!, input: UpdateLegalPageInput!): LegalPage!
+  updateNewsletterSubscriber(id: Int!, input: UpdateNewsletterSubscriberInput!): NewsletterSubscriber!
+  updateNicolaPost(id: Int!, input: UpdateNicolaPostInput!): NicolaPost!
+  updatePost(id: Int!, input: UpdatePostInput!): Post!
+  updatePricingTier(id: Int!, input: UpdatePricingTierInput!): PricingTier!
+  updateProcessStep(id: Int!, input: UpdateProcessStepInput!): ProcessStep!
+  updateProjectData(id: Int!, input: UpdateProjectDataInput!): ProjectData!
+  updateService(id: Int!, input: UpdateServiceInput!): Service!
+  updateSiteSetting(id: Int!, input: UpdateSiteSettingInput!): SiteSetting!
+  updateTeamMember(id: Int!, input: UpdateTeamMemberInput!): TeamMember!
+  updateTechnology(id: Int!, input: UpdateTechnologyInput!): Technology!
+  updateTestimonial(id: Int!, input: UpdateTestimonialInput!): Testimonial!
+}
+
+type NewsletterSubscriber {
+  createdAt: DateTime!
+  email: String!
+  id: Int!
+  isActive: Boolean!
+}
+
+type NicolaPost {
+  Image: String
+  body: String!
+  createdAt: DateTime!
+  id: Int!
+  likeAmount: Int!
+  title: String!
+}
+
+type Post {
+  Image: String
+  body: String!
+  createdAt: DateTime!
+  id: Int!
+  likeAmount: Int!
+  title: String!
+}
+
+type PricingTier {
+  createdAt: DateTime!
+  ctaText: String!
+  description: String!
+  features: String!
+  id: Int!
+  isActive: Boolean!
+  isPopular: Boolean!
+  name: String!
+  order: Int!
+  price: String!
+  unit: String!
+}
+
+type ProcessStep {
+  createdAt: DateTime!
+  description: String!
+  icon: String!
+  id: Int!
+  isActive: Boolean!
+  order: Int!
+  title: String!
+}
+
+type ProjectData {
+  body: String!
+  by: String!
+  category: String!
+  challenge: String
+  clientName: String!
+  clientWebsite: String!
+  createdAt: DateTime!
+  featured: Boolean!
+  id: Int!
+  image: String!
+  metrics: String
+  objective: String!
+  results: String
+  solution: String
+  title: String!
+  tools: String!
+  updatedAt: DateTime!
+  video: String!
+}
+
+"""About the Redwood queries."""
+type Query {
+  activeServices: [Service!]!
+  clientLogo(id: Int!): ClientLogo
+  clientLogos: [ClientLogo!]!
+  contactSubmission(id: Int!): ContactSubmission
+  contactSubmissions: [ContactSubmission!]!
+  faq(id: Int!): Faq
+  faqs: [Faq!]!
+  legalPage(id: Int!): LegalPage
+  legalPageBySlug(slug: String!): LegalPage
+  legalPages: [LegalPage!]!
+  newsletterSubscriber(id: Int!): NewsletterSubscriber
+  newsletterSubscribers: [NewsletterSubscriber!]!
+  nicolaPost(id: Int!): NicolaPost
+  nicolaPosts: [NicolaPost!]!
+  post(id: Int!): Post
+  posts: [Post!]!
+  pricingTier(id: Int!): PricingTier
+  pricingTiers: [PricingTier!]!
+  processStep(id: Int!): ProcessStep
+  processSteps: [ProcessStep!]!
+  projectData(id: Int!): ProjectData
+  projectDatas: [ProjectData!]!
+
+  """Fetches the Redwood root schema."""
+  redwood: Redwood
+  service(id: Int!): Service
+  serviceBySlug(slug: String!): Service
+  services: [Service!]!
+  siteSetting(id: Int!): SiteSetting
+  siteSettingByKey(key: String!): SiteSetting
+  siteSettings: [SiteSetting!]!
+  teamMember(id: Int!): TeamMember
+  teamMembers: [TeamMember!]!
+  technologies: [Technology!]!
+  technology(id: Int!): Technology
+  testimonial(id: Int!): Testimonial
+  testimonials: [Testimonial!]!
+}
+
+"""
+The RedwoodJS Root Schema
+
+Defines details about RedwoodJS such as the current user and version information.
+"""
+type Redwood {
+  """The current user."""
+  currentUser: JSON
+
+  """The version of Prisma."""
+  prismaVersion: String
+
+  """The version of Redwood."""
+  version: String
+}
+
+type Service {
+  createdAt: DateTime!
+  fullDescription: String!
+  icon: String!
+  id: Int!
+  image: String
+  isActive: Boolean!
+  order: Int!
+  shortDescription: String!
+  slug: String!
+  title: String!
+  updatedAt: DateTime!
+}
+
+type SiteSetting {
+  createdAt: DateTime!
+  fieldType: String!
+  group: String!
+  id: Int!
+  key: String!
+  label: String!
+  updatedAt: DateTime!
+  value: String!
+}
+
+type TeamMember {
+  bio: String!
+  createdAt: DateTime!
+  email: String
+  github: String
+  id: Int!
+  image: String
+  isActive: Boolean!
+  linkedin: String
+  name: String!
+  order: Int!
+  role: String!
+}
+
+type Technology {
+  category: String!
+  createdAt: DateTime!
+  icon: String!
+  id: Int!
+  isActive: Boolean!
+  name: String!
+  order: Int!
+  proficiency: String!
+}
+
+type Testimonial {
+  clientCompany: String!
+  clientImage: String
+  clientName: String!
+  clientTitle: String!
+  createdAt: DateTime!
+  id: Int!
+  isActive: Boolean!
+  order: Int!
+  projectUrl: String
+  quote: String!
+  rating: Int!
+}
+
+scalar Time
+
+input UpdateClientLogoInput {
+  isActive: Boolean
+  logoUrl: String
+  name: String
+  order: Int
+  websiteUrl: String
+}
+
+input UpdateContactSubmissionInput {
+  notes: String
+  status: String
+}
+
+input UpdateFaqInput {
+  answer: String
+  category: String
+  isActive: Boolean
+  order: Int
+  question: String
+}
+
+input UpdateLegalPageInput {
+  body: String
+  isActive: Boolean
+  slug: String
+  title: String
+}
+
+input UpdateNewsletterSubscriberInput {
+  isActive: Boolean
+}
+
+input UpdateNicolaPostInput {
+  Image: String
+  body: String
+  likeAmount: Int
+  title: String
+}
+
+input UpdatePostInput {
+  Image: String
+  body: String
+  likeAmount: Int
+  title: String
+}
+
+input UpdatePricingTierInput {
+  ctaText: String
+  description: String
+  features: String
+  isActive: Boolean
+  isPopular: Boolean
+  name: String
+  order: Int
+  price: String
+  unit: String
+}
+
+input UpdateProcessStepInput {
+  description: String
+  icon: String
+  isActive: Boolean
+  order: Int
+  title: String
+}
+
+input UpdateProjectDataInput {
+  body: String
+  by: String
+  category: String
+  challenge: String
+  clientName: String
+  clientWebsite: String
+  featured: Boolean
+  image: String
+  metrics: String
+  objective: String
+  results: String
+  solution: String
+  title: String
+  tools: String
+  video: String
+}
+
+input UpdateServiceInput {
+  fullDescription: String
+  icon: String
+  image: String
+  isActive: Boolean
+  order: Int
+  shortDescription: String
+  slug: String
+  title: String
+}
+
+input UpdateSiteSettingInput {
+  fieldType: String
+  group: String
+  id: Int
+  key: String
+  label: String
+  value: String
+}
+
+input UpdateTeamMemberInput {
+  bio: String
+  email: String
+  github: String
+  image: String
+  isActive: Boolean
+  linkedin: String
+  name: String
+  order: Int
+  role: String
+}
+
+input UpdateTechnologyInput {
+  category: String
+  icon: String
+  isActive: Boolean
+  name: String
+  order: Int
+  proficiency: String
+}
+
+input UpdateTestimonialInput {
+  clientCompany: String
+  clientImage: String
+  clientName: String
+  clientTitle: String
+  isActive: Boolean
+  order: Int
+  projectUrl: String
+  quote: String
+  rating: Int
+}

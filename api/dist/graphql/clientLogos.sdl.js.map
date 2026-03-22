@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/clientLogos.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type ClientLogo {\r\n    id: Int!\r\n    name: String!\r\n    logoUrl: String!\r\n    websiteUrl: String\r\n    order: Int!\r\n    isActive: Boolean!\r\n    createdAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    clientLogos: [ClientLogo!]! @skipAuth\r\n    clientLogo(id: Int!): ClientLogo @requireAuth\r\n  }\r\n\r\n  input CreateClientLogoInput {\r\n    name: String!\r\n    logoUrl: String!\r\n    websiteUrl: String\r\n    order: Int\r\n    isActive: Boolean\r\n  }\r\n\r\n  input UpdateClientLogoInput {\r\n    name: String\r\n    logoUrl: String\r\n    websiteUrl: String\r\n    order: Int\r\n    isActive: Boolean\r\n  }\r\n\r\n  type Mutation {\r\n    createClientLogo(input: CreateClientLogoInput!): ClientLogo! @requireAuth\r\n    updateClientLogo(id: Int!, input: UpdateClientLogoInput!): ClientLogo!\r\n      @requireAuth\r\n    deleteClientLogo(id: Int!): ClientLogo! @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

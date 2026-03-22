@@ -1,0 +1,25 @@
+/*! ../../../components/Admin/ClientLogo/ClientLogoForm/ClientLogoForm */
+
+/*! @redwoodjs/forms */
+
+/*! @redwoodjs/router */
+
+/*! @redwoodjs/web */
+
+/*! @redwoodjs/web/toast */
+
+/*! core-js/modules/es.array.push.js */
+
+/*! graphql-tag */
+
+/*! react */
+
+/*! react-hook-form */
+
+/*!****************************************************************!*\
+  !*** ./src/pages/Admin/NewClientLogoPage/NewClientLogoPage.js ***!
+  \****************************************************************/
+
+/*!**************************************************************************!*\
+  !*** ./src/components/Admin/ClientLogo/ClientLogoForm/ClientLogoForm.js ***!
+  \**************************************************************************/

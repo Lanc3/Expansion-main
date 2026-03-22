@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/faqs.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type Faq {\r\n    id: Int!\r\n    question: String!\r\n    answer: String!\r\n    category: String!\r\n    order: Int!\r\n    isActive: Boolean!\r\n    createdAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    faqs: [Faq!]! @skipAuth\r\n    faq(id: Int!): Faq @requireAuth\r\n  }\r\n\r\n  input CreateFaqInput {\r\n    question: String!\r\n    answer: String!\r\n    category: String!\r\n    order: Int!\r\n    isActive: Boolean!\r\n  }\r\n\r\n  input UpdateFaqInput {\r\n    question: String\r\n    answer: String\r\n    category: String\r\n    order: Int\r\n    isActive: Boolean\r\n  }\r\n\r\n  type Mutation {\r\n    createFaq(input: CreateFaqInput!): Faq! @requireAuth\r\n    updateFaq(id: Int!, input: UpdateFaqInput!): Faq! @requireAuth\r\n    deleteFaq(id: Int!): Faq! @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

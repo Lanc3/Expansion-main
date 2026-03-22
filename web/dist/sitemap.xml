@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://www.expansion.ie/</loc><priority>1.0</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.expansion.ie/services</loc><priority>0.9</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.expansion.ie/services/custom-software-development</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/services/ai-engineering</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/services/ai-automation</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/services/web-applications</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/services/mobile-applications</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/services/game-development</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/services/api-integration</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/about</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/team</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/contactus</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/faq</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/pricing</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/process</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
+  <url><loc>https://www.expansion.ie/aarons-blog</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.expansion.ie/legal/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.expansion.ie/legal/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+</urlset>

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/siteSettings.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type SiteSetting {\r\n    id: Int!\r\n    key: String!\r\n    value: String!\r\n    group: String!\r\n    label: String!\r\n    fieldType: String!\r\n    createdAt: DateTime!\r\n    updatedAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    siteSettings: [SiteSetting!]! @requireAuth\r\n    siteSetting(id: Int!): SiteSetting @requireAuth\r\n    siteSettingByKey(key: String!): SiteSetting @skipAuth\r\n  }\r\n\r\n  input CreateSiteSettingInput {\r\n    key: String!\r\n    value: String!\r\n    group: String!\r\n    label: String!\r\n    fieldType: String!\r\n  }\r\n\r\n  input UpdateSiteSettingInput {\r\n    id: Int\r\n    key: String\r\n    value: String\r\n    group: String\r\n    label: String\r\n    fieldType: String\r\n  }\r\n\r\n  type Mutation {\r\n    createSiteSetting(input: CreateSiteSettingInput!): SiteSetting!\r\n      @requireAuth\r\n    updateSiteSetting(id: Int!, input: UpdateSiteSettingInput!): SiteSetting!\r\n      @requireAuth\r\n    deleteSiteSetting(id: Int!): SiteSetting! @requireAuth\r\n    bulkUpdateSiteSettings(input: [UpdateSiteSettingInput!]!): [SiteSetting!]!\r\n      @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/processSteps.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type ProcessStep {\r\n    id: Int!\r\n    title: String!\r\n    description: String!\r\n    icon: String!\r\n    order: Int!\r\n    isActive: Boolean!\r\n    createdAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    processSteps: [ProcessStep!]! @skipAuth\r\n    processStep(id: Int!): ProcessStep @requireAuth\r\n  }\r\n\r\n  input CreateProcessStepInput {\r\n    title: String!\r\n    description: String!\r\n    icon: String!\r\n    order: Int!\r\n    isActive: Boolean!\r\n  }\r\n\r\n  input UpdateProcessStepInput {\r\n    title: String\r\n    description: String\r\n    icon: String\r\n    order: Int\r\n    isActive: Boolean\r\n  }\r\n\r\n  type Mutation {\r\n    createProcessStep(input: CreateProcessStepInput!): ProcessStep! @requireAuth\r\n    updateProcessStep(id: Int!, input: UpdateProcessStepInput!): ProcessStep!\r\n      @requireAuth\r\n    deleteProcessStep(id: Int!): ProcessStep! @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}

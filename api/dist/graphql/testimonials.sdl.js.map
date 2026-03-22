@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../src/graphql/testimonials.sdl.js"],
+  "sourcesContent": ["export const schema = gql`\r\n  type Testimonial {\r\n    id: Int!\r\n    clientName: String!\r\n    clientTitle: String!\r\n    clientCompany: String!\r\n    clientImage: String\r\n    quote: String!\r\n    rating: Int!\r\n    projectUrl: String\r\n    isActive: Boolean!\r\n    order: Int!\r\n    createdAt: DateTime!\r\n  }\r\n\r\n  type Query {\r\n    testimonials: [Testimonial!]! @skipAuth\r\n    testimonial(id: Int!): Testimonial @requireAuth\r\n  }\r\n\r\n  input CreateTestimonialInput {\r\n    clientName: String!\r\n    clientTitle: String!\r\n    clientCompany: String!\r\n    clientImage: String\r\n    quote: String!\r\n    rating: Int!\r\n    projectUrl: String\r\n    isActive: Boolean!\r\n    order: Int!\r\n  }\r\n\r\n  input UpdateTestimonialInput {\r\n    clientName: String\r\n    clientTitle: String\r\n    clientCompany: String\r\n    clientImage: String\r\n    quote: String\r\n    rating: Int\r\n    projectUrl: String\r\n    isActive: Boolean\r\n    order: Int\r\n  }\r\n\r\n  type Mutation {\r\n    createTestimonial(input: CreateTestimonialInput!): Testimonial! @requireAuth\r\n    updateTestimonial(id: Int!, input: UpdateTestimonialInput!): Testimonial!\r\n      @requireAuth\r\n    deleteTestimonial(id: Int!): Testimonial! @requireAuth\r\n  }\r\n`\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;yBAAyB;AAAlB,MAAMA,SAASC,mBAAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+  "names": ["schema", "gql"]
+}
