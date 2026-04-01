@@ -18,7 +18,7 @@ const siteLinks = [
   { label: 'FAQ', to: '/faq' },
   { label: 'Pricing', to: '/pricing' },
   { label: 'Process', to: '/process' },
-  { label: 'Blog', to: '/aarons-blog' },
+  { label: 'Research', to: '/research' },
   { label: 'Contact', to: '/contactus' },
 ]
 

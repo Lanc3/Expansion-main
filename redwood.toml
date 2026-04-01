@@ -9,7 +9,7 @@
   title = "Expansion"
   port = 8911
   apiUrl = "/api"
-  includeEnvironmentVariables = [] # any ENV vars that should be available to the web side, see https://redwoodjs.com/docs/environment-variables#web
+  includeEnvironmentVariables = ['SITE_URL'] # canonical origin for OG URLs (e.g. https://www.expansion.ie)
 [api]
   port = 8912
 [browser]

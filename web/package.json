@@ -17,10 +17,15 @@
     "@redwoodjs/forms": "5.2.3",
     "@redwoodjs/router": "5.2.3",
     "@redwoodjs/web": "5.2.3",
+    "@tailwindcss/typography": "^0.5.19",
     "humanize-string": "2.1.0",
     "prop-types": "15.8.1",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-markdown": "^10.1.0",
+    "react-syntax-highlighter": "^16.1.1",
+    "rehype-sanitize": "^6.0.0",
+    "remark-gfm": "^4.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.14",

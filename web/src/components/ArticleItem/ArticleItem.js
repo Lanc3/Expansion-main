@@ -3,7 +3,6 @@ import { motion } from 'framer-motion'
 import { FiClock, FiTag, FiBookOpen } from 'react-icons/fi'
 
 import ExpandingText from '../ExpandingText/ExpandingText'
-import LikeButton from '../LikeButton'
 import LinkPreview from '../LinkPreview/LinkPreview'
 
 const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000

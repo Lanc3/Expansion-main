@@ -7,6 +7,7 @@ import ProjectSingle from '../ProjectSingle/ProjectSingle'
 
 const selectOptions = [
   'All Projects',
+  'Mobile',
   'React Native',
   'React',
   'Design',

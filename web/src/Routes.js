@@ -81,12 +81,17 @@ const Routes = () => {
           <Route path="/admin/legal-pages/new" page={AdminNewLegalPagePage} name="adminNewLegalPage" />
           <Route path="/admin/legal-pages/{id:Int}" page={AdminLegalPagePage} name="adminLegalPage" />
           <Route path="/admin/legal-pages/{id:Int}/edit" page={AdminEditLegalPagePage} name="adminEditLegalPage" />
+          <Route path="/admin/research-articles" page={AdminResearchArticlesPage} name="adminResearchArticles" />
+          <Route path="/admin/research-articles/new" page={AdminNewResearchArticlePage} name="adminNewResearchArticle" />
+          <Route path="/admin/research-articles/{id:Int}/edit" page={AdminEditResearchArticlePage} name="adminEditResearchArticle" />
         </Set>
       </Private>
       <Set wrap={HeaderFooterLayout}>
         <Private unauthenticated="home"></Private>
-        <Route path="/nicolas-article/{id:Int}" page={NicolasArticlePage} name="nicolasArticle" />
-        <Route path="/aarons-article/{id:Int}" page={AaronsArticlePage} name="aaronsArticle" />
+        <Route path="/research/{slug}" page={ResearchArticlePage} name="researchArticle" />
+        <Route path="/research" page={ResearchLabsPage} name="researchLabs" />
+        <Route path="/nicolas-article/{id:Int}" page={NicolasArticleRedirectPage} name="nicolasArticle" />
+        <Route path="/aarons-article/{id:Int}" page={AaronsArticleRedirectPage} name="aaronsArticle" />
         <Route path="/signup" page={SignupPage} name="signup" />
         <Route path="/contactus" page={ContactusPage} name="contactus" />
         <Route path="/" page={HomePage} name="home" />
@@ -98,8 +103,8 @@ const Routes = () => {
         <Route path="/process" page={ProcessPage} name="process" />
         <Route path="/team" page={TeamPage} name="team" />
         <Route path="/login" page={LoginPage} name="login" />
-        <Route path="/nicolas-blog" page={NicolasBlogPage} name="nicolasBlog" />
-        <Route path="/aarons-blog" page={AaronsBlogPage} name="aaronsBlog" />
+        <Route path="/nicolas-blog" page={RedirectToResearchLabsPage} name="nicolasBlog" />
+        <Route path="/aarons-blog" page={RedirectToResearchLabsPage} name="aaronsBlog" />
         <Route path="/legal/{slug}" page={LegalPage} name="legal" />
         <Route path="/forgot-password" page={ForgotPasswordPage} name="forgotPassword" />
         <Route path="/reset-password" page={ResetPasswordPage} name="resetPassword" />

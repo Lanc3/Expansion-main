@@ -2,12 +2,13 @@ import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
-import PostForm from 'src/components/Post/PostForm'
+import ResearchArticleForm from 'src/components/Admin/Research/ResearchArticleForm/ResearchArticleForm'
 
 const CREATE_POST_MUTATION = gql`
-  mutation CreatePostMutation($input: CreatePostInput!) {
+  mutation CreatePostMutationScaffold($input: CreatePostInput!) {
     createPost(input: $input) {
       id
+      slug
     }
   }
 `
@@ -18,8 +19,8 @@ const NewPost = () => {
       toast.success('Post created')
       navigate(routes.posts())
     },
-    onError: (error) => {
-      toast.error(error.message)
+    onError: (err) => {
+      toast.error(err.message)
     },
   })
 
@@ -30,10 +31,17 @@ const NewPost = () => {
   return (
     <div className="rw-segment">
       <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Post</h2>
+        <h2 className="rw-heading rw-heading-secondary">New post (scaffold)</h2>
+        <p className="text-sm text-gray-400">
+          Prefer the{' '}
+          <a href="/admin/research-articles/new" className="text-neon-primary">
+            Research CMS
+          </a>
+          .
+        </p>
       </header>
       <div className="rw-segment-main">
-        <PostForm onSave={onSave} loading={loading} error={error} />
+        <ResearchArticleForm onSave={onSave} loading={loading} error={error} />
       </div>
     </div>
   )

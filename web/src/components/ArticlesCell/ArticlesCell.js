@@ -1,11 +1,13 @@
 export const QUERY = gql`
   query ArticlesQuery {
-    articles: posts {
+    articles: researchArticles(take: 48, skip: 0) {
       id
+      slug
       title
       body
       createdAt
       likeAmount
+      publishedAt
     }
   }
 `

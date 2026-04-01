@@ -28,6 +28,7 @@ const STATS_QUERY = gql`
     }
     posts {
       id
+      published
     }
     contactSubmissions {
       id
@@ -62,10 +63,19 @@ const statCards = [
   },
   {
     key: 'posts',
-    label: 'TOTAL BLOG POSTS',
+    label: 'RESEARCH ARTICLES (PUBLISHED)',
     icon: FiFileText,
     iconClass: 'text-neon-accent',
-    getCount: (data) => data?.posts?.length,
+    getCount: (data) =>
+      data?.posts?.filter((p) => p.published)?.length,
+  },
+  {
+    key: 'drafts',
+    label: 'RESEARCH DRAFTS',
+    icon: FiFileText,
+    iconClass: 'text-gray-400',
+    getCount: (data) =>
+      data?.posts?.filter((p) => !p.published)?.length,
   },
   {
     key: 'contact',
@@ -99,11 +109,18 @@ const quickLinks = [
     accent: 'text-neon-accent',
   },
   {
-    to: '/posts',
-    title: 'Blog Posts',
-    description: 'Articles, drafts, and publishing.',
+    to: '/admin/research-articles',
+    title: 'Research articles',
+    description: 'Expansion AI Research Labs CMS.',
     icon: FiFileText,
     accent: 'text-neon-secondary',
+  },
+  {
+    to: '/posts',
+    title: 'Posts (legacy scaffold)',
+    description: 'Old Redwood scaffold table UI.',
+    icon: FiFileText,
+    accent: 'text-gray-500',
   },
   {
     to: '/admin/team-members',
@@ -225,7 +242,7 @@ const BlogAdminPage = () => {
         <motion.div
           initial="hidden"
           animate="visible"
-          className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4"
+          className="mb-12 grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-5"
         >
           {statCards.map((stat, i) => {
             const Icon = stat.icon

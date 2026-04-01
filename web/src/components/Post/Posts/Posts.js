@@ -49,7 +49,7 @@ const PostsList = ({ posts }) => {
     >
       <div className="flex flex-col items-center justify-center">
         <p className="font-general-medium mb-2 text-left text-3xl font-bold text-expansion-orange  sm:text-4xl">
-          Aarons Blog Posts
+          Posts (legacy scaffold)
         </p>
       </div>
       <div className="rw-segment rw-table-wrapper-responsive">
@@ -58,8 +58,10 @@ const PostsList = ({ posts }) => {
             <tr>
               <th>Id</th>
               <th>Title</th>
+              <th>Slug</th>
+              <th>Status</th>
               <th>Body</th>
-              <th>Created at</th>
+              <th>Updated</th>
               <th>&nbsp;</th>
             </tr>
           </thead>
@@ -68,8 +70,10 @@ const PostsList = ({ posts }) => {
               <tr key={post.id}>
                 <td>{truncate(post.id)}</td>
                 <td>{truncate(post.title)}</td>
+                <td className="font-mono text-xs">{post.slug}</td>
+                <td>{post.published ? 'live' : 'draft'}</td>
                 <td>{truncate(post.body)}</td>
-                <td>{timeTag(post.createdAt)}</td>
+                <td>{timeTag(post.updatedAt)}</td>
                 <td>
                   <nav className="rw-table-actions">
                     <Link

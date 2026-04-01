@@ -114,8 +114,18 @@ export type CreateNicolaPostInput = {
 
 export type CreatePostInput = {
   Image?: InputMaybe<Scalars['String']>;
+  authorName?: InputMaybe<Scalars['String']>;
   body: Scalars['String'];
-  likeAmount: Scalars['Int'];
+  contentFormat?: InputMaybe<Scalars['String']>;
+  excerpt?: InputMaybe<Scalars['String']>;
+  featured?: InputMaybe<Scalars['Boolean']>;
+  likeAmount?: InputMaybe<Scalars['Int']>;
+  published?: InputMaybe<Scalars['Boolean']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  seoDescription?: InputMaybe<Scalars['String']>;
+  seoTitle?: InputMaybe<Scalars['String']>;
+  slug?: InputMaybe<Scalars['String']>;
+  tags?: InputMaybe<Array<Scalars['String']>>;
   title: Scalars['String'];
 };
 
@@ -546,11 +556,23 @@ export type NicolaPost = {
 export type Post = {
   __typename?: 'Post';
   Image?: Maybe<Scalars['String']>;
+  authorName?: Maybe<Scalars['String']>;
   body: Scalars['String'];
+  contentFormat: Scalars['String'];
   createdAt: Scalars['DateTime'];
+  excerpt?: Maybe<Scalars['String']>;
+  featured: Scalars['Boolean'];
   id: Scalars['Int'];
+  legacyNicolaPostId?: Maybe<Scalars['Int']>;
   likeAmount: Scalars['Int'];
+  published: Scalars['Boolean'];
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  seoDescription?: Maybe<Scalars['String']>;
+  seoTitle?: Maybe<Scalars['String']>;
+  slug: Scalars['String'];
+  tags: Array<Scalars['String']>;
   title: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
 };
 
 export type PricingTier = {
@@ -626,8 +648,13 @@ export type Query = {
   processSteps: Array<ProcessStep>;
   projectData?: Maybe<ProjectData>;
   projectDatas: Array<ProjectData>;
+  publishedNicolaLegacySlug?: Maybe<Scalars['String']>;
+  publishedPostSlugById?: Maybe<Scalars['String']>;
   /** Fetches the Redwood root schema. */
   redwood?: Maybe<Redwood>;
+  researchArticle?: Maybe<Post>;
+  researchArticleDraft?: Maybe<Post>;
+  researchArticles: Array<Post>;
   service?: Maybe<Service>;
   serviceBySlug?: Maybe<Service>;
   services: Array<Service>;
@@ -706,6 +733,37 @@ export type QueryprocessStepArgs = {
 /** About the Redwood queries. */
 export type QueryprojectDataArgs = {
   id: Scalars['Int'];
+};
+
+
+/** About the Redwood queries. */
+export type QuerypublishedNicolaLegacySlugArgs = {
+  legacyId: Scalars['Int'];
+};
+
+
+/** About the Redwood queries. */
+export type QuerypublishedPostSlugByIdArgs = {
+  id: Scalars['Int'];
+};
+
+
+/** About the Redwood queries. */
+export type QueryresearchArticleArgs = {
+  slug: Scalars['String'];
+};
+
+
+/** About the Redwood queries. */
+export type QueryresearchArticleDraftArgs = {
+  slug: Scalars['String'];
+};
+
+
+/** About the Redwood queries. */
+export type QueryresearchArticlesArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -875,8 +933,18 @@ export type UpdateNicolaPostInput = {
 
 export type UpdatePostInput = {
   Image?: InputMaybe<Scalars['String']>;
+  authorName?: InputMaybe<Scalars['String']>;
   body?: InputMaybe<Scalars['String']>;
+  contentFormat?: InputMaybe<Scalars['String']>;
+  excerpt?: InputMaybe<Scalars['String']>;
+  featured?: InputMaybe<Scalars['Boolean']>;
   likeAmount?: InputMaybe<Scalars['Int']>;
+  published?: InputMaybe<Scalars['Boolean']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  seoDescription?: InputMaybe<Scalars['String']>;
+  seoTitle?: InputMaybe<Scalars['String']>;
+  slug?: InputMaybe<Scalars['String']>;
+  tags?: InputMaybe<Array<Scalars['String']>>;
   title?: InputMaybe<Scalars['String']>;
 };
 
@@ -1419,21 +1487,45 @@ export type NicolaPostRelationResolvers<ContextType = RedwoodGraphQLContext, Par
 
 export type PostResolvers<ContextType = RedwoodGraphQLContext, ParentType extends ResolversParentTypes['Post'] = ResolversParentTypes['Post']> = {
   Image: OptArgsResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  authorName: OptArgsResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   body: OptArgsResolverFn<ResolversTypes['String'], ParentType, ContextType>;
+  contentFormat: OptArgsResolverFn<ResolversTypes['String'], ParentType, ContextType>;
   createdAt: OptArgsResolverFn<ResolversTypes['DateTime'], ParentType, ContextType>;
+  excerpt: OptArgsResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  featured: OptArgsResolverFn<ResolversTypes['Boolean'], ParentType, ContextType>;
   id: OptArgsResolverFn<ResolversTypes['Int'], ParentType, ContextType>;
+  legacyNicolaPostId: OptArgsResolverFn<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   likeAmount: OptArgsResolverFn<ResolversTypes['Int'], ParentType, ContextType>;
+  published: OptArgsResolverFn<ResolversTypes['Boolean'], ParentType, ContextType>;
+  publishedAt: OptArgsResolverFn<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  seoDescription: OptArgsResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  seoTitle: OptArgsResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  slug: OptArgsResolverFn<ResolversTypes['String'], ParentType, ContextType>;
+  tags: OptArgsResolverFn<Array<ResolversTypes['String']>, ParentType, ContextType>;
   title: OptArgsResolverFn<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt: OptArgsResolverFn<ResolversTypes['DateTime'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
 export type PostRelationResolvers<ContextType = RedwoodGraphQLContext, ParentType extends ResolversParentTypes['Post'] = ResolversParentTypes['Post']> = {
   Image?: RequiredResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  authorName?: RequiredResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
   body?: RequiredResolverFn<ResolversTypes['String'], ParentType, ContextType>;
+  contentFormat?: RequiredResolverFn<ResolversTypes['String'], ParentType, ContextType>;
   createdAt?: RequiredResolverFn<ResolversTypes['DateTime'], ParentType, ContextType>;
+  excerpt?: RequiredResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  featured?: RequiredResolverFn<ResolversTypes['Boolean'], ParentType, ContextType>;
   id?: RequiredResolverFn<ResolversTypes['Int'], ParentType, ContextType>;
+  legacyNicolaPostId?: RequiredResolverFn<Maybe<ResolversTypes['Int']>, ParentType, ContextType>;
   likeAmount?: RequiredResolverFn<ResolversTypes['Int'], ParentType, ContextType>;
+  published?: RequiredResolverFn<ResolversTypes['Boolean'], ParentType, ContextType>;
+  publishedAt?: RequiredResolverFn<Maybe<ResolversTypes['DateTime']>, ParentType, ContextType>;
+  seoDescription?: RequiredResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  seoTitle?: RequiredResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType>;
+  slug?: RequiredResolverFn<ResolversTypes['String'], ParentType, ContextType>;
+  tags?: RequiredResolverFn<Array<ResolversTypes['String']>, ParentType, ContextType>;
   title?: RequiredResolverFn<ResolversTypes['String'], ParentType, ContextType>;
+  updatedAt?: RequiredResolverFn<ResolversTypes['DateTime'], ParentType, ContextType>;
   __isTypeOf?: IsTypeOfResolverFn<ParentType, ContextType>;
 };
 
@@ -1556,7 +1648,12 @@ export type QueryResolvers<ContextType = RedwoodGraphQLContext, ParentType exten
   processSteps: OptArgsResolverFn<Array<ResolversTypes['ProcessStep']>, ParentType, ContextType>;
   projectData: Resolver<Maybe<ResolversTypes['ProjectData']>, ParentType, ContextType, RequireFields<QueryprojectDataArgs, 'id'>>;
   projectDatas: OptArgsResolverFn<Array<ResolversTypes['ProjectData']>, ParentType, ContextType>;
+  publishedNicolaLegacySlug: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType, RequireFields<QuerypublishedNicolaLegacySlugArgs, 'legacyId'>>;
+  publishedPostSlugById: Resolver<Maybe<ResolversTypes['String']>, ParentType, ContextType, RequireFields<QuerypublishedPostSlugByIdArgs, 'id'>>;
   redwood: OptArgsResolverFn<Maybe<ResolversTypes['Redwood']>, ParentType, ContextType>;
+  researchArticle: Resolver<Maybe<ResolversTypes['Post']>, ParentType, ContextType, RequireFields<QueryresearchArticleArgs, 'slug'>>;
+  researchArticleDraft: Resolver<Maybe<ResolversTypes['Post']>, ParentType, ContextType, RequireFields<QueryresearchArticleDraftArgs, 'slug'>>;
+  researchArticles: Resolver<Array<ResolversTypes['Post']>, ParentType, ContextType, Partial<QueryresearchArticlesArgs>>;
   service: Resolver<Maybe<ResolversTypes['Service']>, ParentType, ContextType, RequireFields<QueryserviceArgs, 'id'>>;
   serviceBySlug: Resolver<Maybe<ResolversTypes['Service']>, ParentType, ContextType, RequireFields<QueryserviceBySlugArgs, 'slug'>>;
   services: OptArgsResolverFn<Array<ResolversTypes['Service']>, ParentType, ContextType>;
@@ -1594,7 +1691,12 @@ export type QueryRelationResolvers<ContextType = RedwoodGraphQLContext, ParentTy
   processSteps?: RequiredResolverFn<Array<ResolversTypes['ProcessStep']>, ParentType, ContextType>;
   projectData?: RequiredResolverFn<Maybe<ResolversTypes['ProjectData']>, ParentType, ContextType, RequireFields<QueryprojectDataArgs, 'id'>>;
   projectDatas?: RequiredResolverFn<Array<ResolversTypes['ProjectData']>, ParentType, ContextType>;
+  publishedNicolaLegacySlug?: RequiredResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType, RequireFields<QuerypublishedNicolaLegacySlugArgs, 'legacyId'>>;
+  publishedPostSlugById?: RequiredResolverFn<Maybe<ResolversTypes['String']>, ParentType, ContextType, RequireFields<QuerypublishedPostSlugByIdArgs, 'id'>>;
   redwood?: RequiredResolverFn<Maybe<ResolversTypes['Redwood']>, ParentType, ContextType>;
+  researchArticle?: RequiredResolverFn<Maybe<ResolversTypes['Post']>, ParentType, ContextType, RequireFields<QueryresearchArticleArgs, 'slug'>>;
+  researchArticleDraft?: RequiredResolverFn<Maybe<ResolversTypes['Post']>, ParentType, ContextType, RequireFields<QueryresearchArticleDraftArgs, 'slug'>>;
+  researchArticles?: RequiredResolverFn<Array<ResolversTypes['Post']>, ParentType, ContextType, Partial<QueryresearchArticlesArgs>>;
   service?: RequiredResolverFn<Maybe<ResolversTypes['Service']>, ParentType, ContextType, RequireFields<QueryserviceArgs, 'id'>>;
   serviceBySlug?: RequiredResolverFn<Maybe<ResolversTypes['Service']>, ParentType, ContextType, RequireFields<QueryserviceBySlugArgs, 'slug'>>;
   services?: RequiredResolverFn<Array<ResolversTypes['Service']>, ParentType, ContextType>;

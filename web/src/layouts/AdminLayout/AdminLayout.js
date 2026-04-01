@@ -35,7 +35,12 @@ const navGroups = [
     items: [
       { label: 'Services', path: '/admin/services', icon: FiLayers },
       { label: 'Projects', path: '/project-datas', icon: FiFolder },
-      { label: 'Blog Posts', path: '/posts', icon: FiFileText },
+      {
+        label: 'Research articles',
+        path: '/admin/research-articles',
+        icon: FiFileText,
+      },
+      { label: 'Posts (scaffold)', path: '/posts', icon: FiFileText },
       { label: 'Team', path: '/admin/team-members', icon: FiUsers },
       { label: 'Technologies', path: '/admin/technologies', icon: FiCpu },
     ],

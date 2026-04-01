@@ -15,7 +15,7 @@
   <url><loc>https://www.expansion.ie/faq</loc><priority>0.5</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.expansion.ie/pricing</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.expansion.ie/process</loc><priority>0.6</priority><changefreq>monthly</changefreq></url>
-  <url><loc>https://www.expansion.ie/aarons-blog</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
+  <url><loc>https://www.expansion.ie/research</loc><priority>0.7</priority><changefreq>weekly</changefreq></url>
   <url><loc>https://www.expansion.ie/legal/privacy-policy</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.expansion.ie/legal/terms-of-service</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
 </urlset>

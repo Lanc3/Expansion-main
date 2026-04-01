@@ -48,6 +48,14 @@ const Post = ({ post }) => {
               <td>{post.title}</td>
             </tr>
             <tr>
+              <th>Slug</th>
+              <td className="font-mono text-sm">{post.slug}</td>
+            </tr>
+            <tr>
+              <th>Published</th>
+              <td>{post.published ? 'yes' : 'no'}</td>
+            </tr>
+            <tr>
               <th>Body</th>
               <td>{post.body}</td>
             </tr>

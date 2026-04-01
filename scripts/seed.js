@@ -816,6 +816,55 @@ For questions about these Terms:
     }
     console.log(`Seeded ${siteSettings.length} site settings`)
 
+    // ============================================
+    // PROJECT DATA — Mindo (The Medical Independent)
+    // ============================================
+    const projectDatas = [
+      {
+        title: 'Mindo — The Medical Independent',
+        category: 'Mobile',
+        image:
+          'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=1200&q=80&auto=format&fit=crop',
+        video: '',
+        clientName: 'The Medical Independent',
+        clientWebsite: 'https://www.medicalindependent.ie/',
+        objective:
+          'Ship native-quality iOS and Android apps so Irish healthcare professionals can follow breaking medical news, analysis, and multimedia from The Medical Independent — with alerts, saved reading, podcasts, video, and access to digital journals, using their existing web credentials.',
+        tools:
+          'iOS, Android, push notifications, in-app audio & video, secure sign-in, publisher content APIs',
+        body: `The Medical Independent is a leading Irish title for investigative and breaking news in healthcare. Their audience — GPs, hospital doctors, and allied health professionals — needed a single app that matched how people actually consume news on the go: short updates, deep reads, and audio when commuting.
+
+We built Mindo for iOS and Android: breaking-news alerts, trusted reporting on the Irish health service, podcasts, video, article saving, social sharing, and access to digital e-copies and journals. Readers sign in with their existing medicalindependent.ie credentials so the experience stays continuous with the web.
+
+The app is the publication’s official mobile channel for healthcare professionals who rely on timely, independent coverage of policy, clinical practice, and the wider medical industry in Ireland and abroad. It is listed on the App Store and Google Play as “Mindo — Medical Independent” (Greencross Publishing).`,
+        by: 'Expansion',
+        challenge:
+          'Deliver a reliable news and media experience across iOS and Android — notifications, reading patterns suited to clinical schedules, and multimedia — while integrating with the publisher’s membership and content systems.',
+        solution:
+          'End-to-end mobile development with push-driven breaking news, structured article and media playback, and account flows aligned with The Medical Independent’s digital access.',
+        results:
+          'Mindo is live on the App Store and Google Play as the official Medical Independent app, with the feature set the publisher markets to its professional readership (alerts, podcasts, video, e-copies, and more).',
+        metrics:
+          'Medical Independent promotes Mindo to a community of 14,000+ healthcare professionals (publisher figure)',
+        featured: true,
+      },
+    ]
+
+    for (const project of projectDatas) {
+      const existing = await db.projectData.findFirst({
+        where: { title: project.title },
+      })
+      if (existing) {
+        await db.projectData.update({
+          where: { id: existing.id },
+          data: project,
+        })
+      } else {
+        await db.projectData.create({ data: project })
+      }
+    }
+    console.log(`Seeded ${projectDatas.length} project showcase entries`)
+
     console.log('\n✓ Seed completed successfully')
   } catch (error) {
     console.error('Seed error:', error)

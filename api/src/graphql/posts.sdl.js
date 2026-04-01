@@ -4,20 +4,42 @@ export const schema = gql`
     title: String!
     body: String!
     createdAt: DateTime!
+    updatedAt: DateTime!
     likeAmount: Int!
     Image: String
+    slug: String!
+    excerpt: String
+    published: Boolean!
+    publishedAt: DateTime
+    tags: [String!]!
+    seoTitle: String
+    seoDescription: String
+    authorName: String
+    legacyNicolaPostId: Int
+    featured: Boolean!
+    contentFormat: String!
   }
 
   type Query {
-    posts: [Post!]! @skipAuth
-    post(id: Int!): Post @skipAuth
+    posts: [Post!]! @requireAuth
+    post(id: Int!): Post @requireAuth
   }
 
   input CreatePostInput {
     title: String!
     body: String!
-    likeAmount: Int!
+    likeAmount: Int
     Image: String
+    slug: String
+    excerpt: String
+    published: Boolean
+    publishedAt: DateTime
+    tags: [String!]
+    seoTitle: String
+    seoDescription: String
+    authorName: String
+    featured: Boolean
+    contentFormat: String
   }
 
   input UpdatePostInput {
@@ -25,6 +47,16 @@ export const schema = gql`
     body: String
     likeAmount: Int
     Image: String
+    slug: String
+    excerpt: String
+    published: Boolean
+    publishedAt: DateTime
+    tags: [String!]
+    seoTitle: String
+    seoDescription: String
+    authorName: String
+    featured: Boolean
+    contentFormat: String
   }
 
   type Mutation {

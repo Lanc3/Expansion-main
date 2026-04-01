@@ -20,7 +20,11 @@ const NAV_ITEMS = [
   { label: '_SERVICES', route: 'services', path: '/services' },
   { label: '_ABOUT', route: 'about', path: '/about' },
   { label: '_CONTACT', route: 'contactus', path: '/contactus' },
-  { label: '_BLOG', route: 'aaronsBlog', path: '/aarons-blog' },
+  {
+    label: '_RESEARCH',
+    route: 'researchLabs',
+    path: '/research',
+  },
 ]
 
 const HeaderFooterLayout = ({ children }) => {

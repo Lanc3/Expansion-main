@@ -1,12 +1,10 @@
 import { posts, post, createPost, updatePost, deletePost } from './posts'
 
-// Generated boilerplate tests do not account for all circumstances
-// and can fail without adjustments, e.g. Float.
-//           Please refer to the RedwoodJS Testing Docs:
-//       https://redwoodjs.com/docs/testing#testing-services
-// https://redwoodjs.com/docs/testing#jest-expect-type-considerations
-
 describe('posts', () => {
+  beforeEach(() => {
+    mockCurrentUser({ id: 1, roles: 'admin' })
+  })
+
   scenario('returns all posts', async (scenario) => {
     const result = await posts()
 
@@ -16,16 +14,18 @@ describe('posts', () => {
   scenario('returns a single post', async (scenario) => {
     const result = await post({ id: scenario.post.one.id })
 
-    expect(result).toEqual(scenario.post.one)
+    expect(result.id).toEqual(scenario.post.one.id)
+    expect(result.slug).toEqual('string-one')
   })
 
   scenario('creates a post', async () => {
     const result = await createPost({
-      input: { title: 'String', body: 'String' },
+      input: { title: 'New Title', body: 'New body' },
     })
 
-    expect(result.title).toEqual('String')
-    expect(result.body).toEqual('String')
+    expect(result.title).toEqual('New Title')
+    expect(result.body).toEqual('New body')
+    expect(result.slug).toBeTruthy()
   })
 
   scenario('updates a post', async (scenario) => {

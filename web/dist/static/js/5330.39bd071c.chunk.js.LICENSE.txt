@@ -1,0 +1,33 @@
+/*! ../CopyCodeBlock/CopyCodeBlock */
+
+/*! core-js/modules/es.array.push.js */
+
+/*! core-js/modules/esnext.async-iterator.for-each.js */
+
+/*! core-js/modules/esnext.async-iterator.map.js */
+
+/*! core-js/modules/esnext.iterator.constructor.js */
+
+/*! core-js/modules/esnext.iterator.for-each.js */
+
+/*! core-js/modules/esnext.iterator.map.js */
+
+/*! react */
+
+/*! react-icons/fi */
+
+/*! react-markdown */
+
+/*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/facebook/regenerator/blob/main/LICENSE */
+
+/*! rehype-sanitize */
+
+/*! remark-gfm */
+
+/*!*******************************************************!*\
+  !*** ./src/components/CopyCodeBlock/CopyCodeBlock.js ***!
+  \*******************************************************/
+
+/*!*************************************************************!*\
+  !*** ./src/components/ResearchMarkdown/ResearchMarkdown.js ***!
+  \*************************************************************/

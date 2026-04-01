@@ -67,21 +67,18 @@ const ExpandingText = ({ data, toggleCallback, notAaron }) => {
         ) : (
           <>
             <ExpansionButton lable="Quick View" onClickCallback={toggleExpand} />
-            {!notAaron ? (
-              <Link
-                to={routes.aaronsArticle({ id: data.id })}
-                className={buttonClass}
-              >
-                Full Article
-              </Link>
-            ) : (
-              <Link
-                to={routes.nicolasArticle({ id: data.id })}
-                className={buttonClass}
-              >
-                Full Article
-              </Link>
-            )}
+            <Link
+              to={
+                data.slug
+                  ? routes.researchArticle({ slug: data.slug })
+                  : !notAaron
+                    ? routes.aaronsArticle({ id: data.id })
+                    : routes.nicolasArticle({ id: data.id })
+              }
+              className={buttonClass}
+            >
+              Full Article
+            </Link>
           </>
         )}
       </div>

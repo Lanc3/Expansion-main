@@ -1,0 +1,39 @@
+/*! ../../../ResearchMarkdown/ResearchMarkdown */
+
+/*! ../../../components/Admin/Research/ResearchArticleForm/ResearchArticleForm */
+
+/*! @redwoodjs/forms */
+
+/*! @redwoodjs/router */
+
+/*! @redwoodjs/web */
+
+/*! @redwoodjs/web/toast */
+
+/*! core-js/modules/es.array.push.js */
+
+/*! core-js/modules/esnext.async-iterator.filter.js */
+
+/*! core-js/modules/esnext.async-iterator.map.js */
+
+/*! core-js/modules/esnext.iterator.constructor.js */
+
+/*! core-js/modules/esnext.iterator.filter.js */
+
+/*! core-js/modules/esnext.iterator.map.js */
+
+/*! graphql-tag */
+
+/*! humanize-string */
+
+/*! react */
+
+/*! react-hook-form */
+
+/*!**************************************************************************!*\
+  !*** ./src/pages/Admin/NewResearchArticlePage/NewResearchArticlePage.js ***!
+  \**************************************************************************/
+
+/*!**********************************************************************************!*\
+  !*** ./src/components/Admin/Research/ResearchArticleForm/ResearchArticleForm.js ***!
+  \**********************************************************************************/

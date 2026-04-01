@@ -3,31 +3,38 @@ import { navigate, routes } from '@redwoodjs/router'
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
 
+import ResearchArticleForm from 'src/components/Admin/Research/ResearchArticleForm/ResearchArticleForm'
 import { SkeletonText } from 'src/components/SkeletonLoader/SkeletonLoader'
-import PostForm from 'src/components/Post/PostForm'
 import ErrorState from 'src/components/ErrorState/ErrorState'
 
 export const QUERY = gql`
-  query EditPostById($id: Int!) {
+  query EditPostByIdScaffold($id: Int!) {
     post: post(id: $id) {
       id
       title
+      slug
       body
-      createdAt
-      likeAmount
+      excerpt
+      tags
       Image
+      seoTitle
+      seoDescription
+      authorName
+      published
+      publishedAt
+      featured
+      contentFormat
+      likeAmount
+      createdAt
+      updatedAt
     }
   }
 `
 const UPDATE_POST_MUTATION = gql`
-  mutation UpdatePostMutation($id: Int!, $input: UpdatePostInput!) {
+  mutation UpdatePostMutationScaffold($id: Int!, $input: UpdatePostInput!) {
     updatePost(id: $id, input: $input) {
       id
-      title
-      body
-      createdAt
-      likeAmount
-      Image
+      slug
     }
   }
 `
@@ -44,8 +51,8 @@ export const Success = ({ post }) => {
       toast.success('Post updated')
       navigate(routes.posts())
     },
-    onError: (error) => {
-      toast.error(error.message)
+    onError: (e) => {
+      toast.error(e.message)
     },
   })
 
@@ -57,11 +64,26 @@ export const Success = ({ post }) => {
     <div className="rw-segment">
       <header className="rw-segment-header">
         <h2 className="rw-heading rw-heading-secondary">
-          Edit Post {post?.id}
+          Edit post {post?.id} (scaffold)
         </h2>
+        <p className="text-sm text-gray-400">
+          Prefer{' '}
+          <a
+            href={`/admin/research-articles/${post.id}/edit`}
+            className="text-neon-primary"
+          >
+            Research CMS
+          </a>
+          .
+        </p>
       </header>
       <div className="rw-segment-main">
-        <PostForm post={post} onSave={onSave} error={error} loading={loading} />
+        <ResearchArticleForm
+          post={post}
+          onSave={onSave}
+          error={error}
+          loading={loading}
+        />
       </div>
     </div>
   )

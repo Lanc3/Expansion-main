@@ -25,12 +25,19 @@ __export(nicolaPosts_exports, {
 });
 module.exports = __toCommonJS(nicolaPosts_exports);
 var import_db = require("../../lib/db");
+var import_auth = require("../../lib/auth");
 const nicolaPosts = () => {
+  (0, import_auth.requireAuth)({
+    roles: "admin"
+  });
   return import_db.db.nicolaPost.findMany();
 };
 const nicolaPost = ({
   id
 }) => {
+  (0, import_auth.requireAuth)({
+    roles: "admin"
+  });
   return import_db.db.nicolaPost.findUnique({
     where: {
       id
@@ -40,6 +47,9 @@ const nicolaPost = ({
 const createNicolaPost = ({
   input
 }) => {
+  (0, import_auth.requireAuth)({
+    roles: "admin"
+  });
   return import_db.db.nicolaPost.create({
     data: input
   });
@@ -48,6 +58,9 @@ const updateNicolaPost = ({
   id,
   input
 }) => {
+  (0, import_auth.requireAuth)({
+    roles: "admin"
+  });
   return import_db.db.nicolaPost.update({
     data: input,
     where: {
@@ -58,6 +71,9 @@ const updateNicolaPost = ({
 const deleteNicolaPost = ({
   id
 }) => {
+  (0, import_auth.requireAuth)({
+    roles: "admin"
+  });
   return import_db.db.nicolaPost.delete({
     where: {
       id

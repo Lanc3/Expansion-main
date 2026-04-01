@@ -3,14 +3,16 @@
     "name": "app",
     "id": 2143,
     "files": [
-      "/static/css/app.677ae805.css",
-      "/static/js/app.c4ed1136.js"
+      "/static/css/app.49abd7d9.css",
+      "/static/js/app.8e084614.js"
     ],
     "referencedChunks": [
       838,
       1803,
+      2637,
       3027,
-      5855,
+      9214,
+      6831,
       5370,
       9145,
       2278,
@@ -23,10 +25,16 @@
       5625,
       7789,
       2596,
+      1559,
       5529,
       3754,
       110,
       5222,
+      9422,
+      1885,
+      5330,
+      204,
+      1449,
       3753,
       4431,
       929,
@@ -41,12 +49,13 @@
       5408,
       647,
       4637,
+      5102,
+      1897,
       4544,
       7905,
       9037,
       8569,
       1120,
-      5102,
       8214,
       1334,
       8986,
@@ -55,6 +64,7 @@
       3697,
       6832,
       7688,
+      9402,
       5447,
       9923,
       2481,
@@ -64,6 +74,7 @@
       3670,
       7713,
       3086,
+      5977,
       7503,
       1989,
       4036,
@@ -77,12 +88,11 @@
       2608,
       324,
       5016,
-      7495,
       3134,
       7401,
       9962,
       5604,
-      6835,
+      6178,
       8766,
       3137,
       4366,
@@ -93,13 +103,15 @@
     "name": "runtime-app",
     "id": 838,
     "files": [
-      "/static/js/runtime-app.9265fbd0.js"
+      "/static/js/runtime-app.a582fa0b.js"
     ],
     "referencedChunks": [
       2143,
       1803,
+      2637,
       3027,
-      5855,
+      9214,
+      6831,
       5370,
       9145,
       2278,
@@ -112,10 +124,16 @@
       5625,
       7789,
       2596,
+      1559,
       5529,
       3754,
       110,
       5222,
+      9422,
+      1885,
+      5330,
+      204,
+      1449,
       3753,
       4431,
       929,
@@ -130,12 +148,13 @@
       5408,
       647,
       4637,
+      5102,
+      1897,
       4544,
       7905,
       9037,
       8569,
       1120,
-      5102,
       8214,
       1334,
       8986,
@@ -144,6 +163,7 @@
       3697,
       6832,
       7688,
+      9402,
       5447,
       9923,
       2481,
@@ -153,6 +173,7 @@
       3670,
       7713,
       3086,
+      5977,
       7503,
       1989,
       4036,
@@ -166,12 +187,11 @@
       2608,
       324,
       5016,
-      7495,
       3134,
       7401,
       9962,
       5604,
-      6835,
+      6178,
       8766,
       3137,
       4366,
@@ -182,28 +202,37 @@
     "name": "AaronsArticlePage",
     "id": 3027,
     "files": [
-      "/static/js/AaronsArticlePage.69b84c27.chunk.js"
+      "/static/js/AaronsArticlePage.df9bb61e.chunk.js"
     ],
     "referencedChunks": [
-      1803
+      1803,
+      2637
     ]
+  },
+  {
+    "name": "AaronsArticleRedirectPage",
+    "id": 9214,
+    "files": [
+      "/static/js/AaronsArticleRedirectPage.79ada585.chunk.js"
+    ],
+    "referencedChunks": []
   },
   {
     "name": "AaronsBlogPage",
     "id": 5370,
     "files": [
-      "/static/js/AaronsBlogPage.f7aa309e.chunk.js"
+      "/static/js/AaronsBlogPage.c655bfcd.chunk.js"
     ],
     "referencedChunks": [
       1803,
-      5855
+      6831
     ]
   },
   {
     "name": "AboutPage",
     "id": 9145,
     "files": [
-      "/static/js/AboutPage.6b98aed1.chunk.js"
+      "/static/js/AboutPage.7679df2a.chunk.js"
     ],
     "referencedChunks": []
   },
@@ -211,7 +240,7 @@
     "name": "BlogAdminPage",
     "id": 2278,
     "files": [
-      "/static/js/BlogAdminPage.90db46df.chunk.js"
+      "/static/js/BlogAdminPage.91fe1d43.chunk.js"
     ],
     "referencedChunks": []
   },
@@ -219,7 +248,7 @@
     "name": "ContactusPage",
     "id": 6463,
     "files": [
-      "/static/js/ContactusPage.eecf75b9.chunk.js"
+      "/static/js/ContactusPage.b26f09e6.chunk.js"
     ],
     "referencedChunks": []
   },
@@ -245,7 +274,7 @@
     "name": "HomePage",
     "id": 8460,
     "files": [
-      "/static/js/HomePage.b3da123e.chunk.js"
+      "/static/js/HomePage.d9ead6ae.chunk.js"
     ],
     "referencedChunks": [
       7586
@@ -280,14 +309,22 @@
     ]
   },
   {
+    "name": "NicolasArticleRedirectPage",
+    "id": 1559,
+    "files": [
+      "/static/js/NicolasArticleRedirectPage.0a95f09c.chunk.js"
+    ],
+    "referencedChunks": []
+  },
+  {
     "name": "NicolasBlogPage",
     "id": 5529,
     "files": [
-      "/static/js/NicolasBlogPage.fd3fee91.chunk.js"
+      "/static/js/NicolasBlogPage.e84568ad.chunk.js"
     ],
     "referencedChunks": [
       1803,
-      5855
+      6831
     ]
   },
   {
@@ -302,7 +339,7 @@
     "name": "PricingPage",
     "id": 110,
     "files": [
-      "/static/js/PricingPage.b77317c8.chunk.js"
+      "/static/js/PricingPage.31788a89.chunk.js"
     ],
     "referencedChunks": []
   },
@@ -311,6 +348,35 @@
     "id": 5222,
     "files": [
       "/static/js/ProcessPage.c74527e4.chunk.js"
+    ],
+    "referencedChunks": []
+  },
+  {
+    "name": "RedirectToResearchLabsPage",
+    "id": 9422,
+    "files": [
+      "/static/js/RedirectToResearchLabsPage.731785e7.chunk.js"
+    ],
+    "referencedChunks": []
+  },
+  {
+    "name": "ResearchArticlePage",
+    "id": 204,
+    "files": [
+      "/static/js/ResearchArticlePage.0fe44c8e.chunk.js"
+    ],
+    "referencedChunks": [
+      1885,
+      1803,
+      5330,
+      2637
+    ]
+  },
+  {
+    "name": "ResearchLabsPage",
+    "id": 1449,
+    "files": [
+      "/static/js/ResearchLabsPage.70b07469.chunk.js"
     ],
     "referencedChunks": []
   },
@@ -328,7 +394,7 @@
     "name": "ServiceDetailPage",
     "id": 4431,
     "files": [
-      "/static/js/ServiceDetailPage.65fa44b2.chunk.js"
+      "/static/js/ServiceDetailPage.45601f90.chunk.js"
     ],
     "referencedChunks": []
   },
@@ -336,7 +402,7 @@
     "name": "ServicesPage",
     "id": 929,
     "files": [
-      "/static/js/ServicesPage.ce99874b.chunk.js"
+      "/static/js/ServicesPage.4bf099b6.chunk.js"
     ],
     "referencedChunks": []
   },
@@ -440,6 +506,19 @@
     ],
     "referencedChunks": [
       4857
+    ]
+  },
+  {
+    "name": "AdminEditResearchArticlePage",
+    "id": 1897,
+    "files": [
+      "/static/js/AdminEditResearchArticlePage.43e79cc7.chunk.js"
+    ],
+    "referencedChunks": [
+      4857,
+      5102,
+      1885,
+      5330
     ]
   },
   {
@@ -567,6 +646,19 @@
     ]
   },
   {
+    "name": "AdminNewResearchArticlePage",
+    "id": 9402,
+    "files": [
+      "/static/js/AdminNewResearchArticlePage.5bed5d88.chunk.js"
+    ],
+    "referencedChunks": [
+      4857,
+      5102,
+      1885,
+      5330
+    ]
+  },
+  {
     "name": "AdminNewServicePage",
     "id": 5447,
     "files": [
@@ -645,6 +737,16 @@
       "/static/js/AdminProcessStepsPage.de1f8fe8.chunk.js"
     ],
     "referencedChunks": []
+  },
+  {
+    "name": "AdminResearchArticlesPage",
+    "id": 5977,
+    "files": [
+      "/static/js/AdminResearchArticlesPage.4d3edd9f.chunk.js"
+    ],
+    "referencedChunks": [
+      5102
+    ]
   },
   {
     "name": "AdminServicePage",
@@ -777,29 +879,33 @@
     "name": "PostEditPostPage",
     "id": 3134,
     "files": [
-      "/static/js/PostEditPostPage.7c16477e.chunk.js"
+      "/static/js/PostEditPostPage.2af0f049.chunk.js"
     ],
     "referencedChunks": [
       4857,
-      7495
+      5102,
+      1885,
+      5330
     ]
   },
   {
     "name": "PostNewPostPage",
     "id": 7401,
     "files": [
-      "/static/js/PostNewPostPage.1b2c9a5f.chunk.js"
+      "/static/js/PostNewPostPage.93c29a01.chunk.js"
     ],
     "referencedChunks": [
       4857,
-      7495
+      5102,
+      1885,
+      5330
     ]
   },
   {
     "name": "PostPostPage",
     "id": 9962,
     "files": [
-      "/static/js/PostPostPage.51330194.chunk.js"
+      "/static/js/PostPostPage.5f563666.chunk.js"
     ],
     "referencedChunks": [
       5102
@@ -809,7 +915,7 @@
     "name": "PostPostsPage",
     "id": 5604,
     "files": [
-      "/static/js/PostPostsPage.27f72131.chunk.js"
+      "/static/js/PostPostsPage.8ad65499.chunk.js"
     ],
     "referencedChunks": [
       5102
@@ -819,22 +925,22 @@
     "name": "ProjectDataEditProjectDataPage",
     "id": 8766,
     "files": [
-      "/static/js/ProjectDataEditProjectDataPage.ec6a9107.chunk.js"
+      "/static/js/ProjectDataEditProjectDataPage.49f5ea81.chunk.js"
     ],
     "referencedChunks": [
       4857,
-      6835
+      6178
     ]
   },
   {
     "name": "ProjectDataNewProjectDataPage",
     "id": 3137,
     "files": [
-      "/static/js/ProjectDataNewProjectDataPage.c6ac47fd.chunk.js"
+      "/static/js/ProjectDataNewProjectDataPage.a6335ae9.chunk.js"
     ],
     "referencedChunks": [
       4857,
-      6835
+      6178
     ]
   },
   {
@@ -873,6 +979,10 @@
       5408,
       647,
       4637,
+      5102,
+      1885,
+      5330,
+      1897,
       4544,
       7905,
       9037,
@@ -882,6 +992,7 @@
       3697,
       6832,
       7688,
+      9402,
       5447,
       2481,
       870,
@@ -890,10 +1001,9 @@
       4036,
       2081,
       2608,
-      7495,
       3134,
       7401,
-      6835,
+      6178,
       8766,
       3137
     ]
@@ -904,7 +1014,13 @@
       "/static/js/5102.89b88c20.chunk.js"
     ],
     "referencedChunks": [
+      4857,
+      1885,
+      5330,
+      1897,
       8214,
+      9402,
+      5977,
       7503,
       1989,
       6,
@@ -913,10 +1029,30 @@
       7591,
       324,
       5016,
+      3134,
+      7401,
       9962,
       5604,
       4366,
       9348
+    ]
+  },
+  {
+    "id": 1885,
+    "files": [
+      "/static/js/1885.dc3625f2.chunk.js"
+    ],
+    "referencedChunks": [
+      1803,
+      5330,
+      2637,
+      204,
+      4857,
+      5102,
+      1897,
+      9402,
+      3134,
+      7401
     ]
   },
   {
@@ -925,33 +1061,68 @@
       "/static/js/1803.e48a381c.chunk.js"
     ],
     "referencedChunks": [
+      2637,
       3027,
-      5855,
+      6831,
       5370,
       2596,
-      5529
+      5529,
+      1885,
+      5330,
+      204
     ]
   },
   {
-    "id": 5855,
+    "id": 5330,
     "files": [
-      "/static/js/5855.a399e91e.chunk.js"
+      "/static/js/5330.39bd071c.chunk.js"
     ],
     "referencedChunks": [
+      1885,
       1803,
-      5370,
-      5529
+      2637,
+      204,
+      4857,
+      5102,
+      1897,
+      9402,
+      3134,
+      7401
     ]
   },
   {
-    "id": 6835,
+    "id": 6178,
     "files": [
-      "/static/js/6835.ef1952d7.chunk.js"
+      "/static/js/6178.337ce595.chunk.js"
     ],
     "referencedChunks": [
       4857,
       8766,
       3137
+    ]
+  },
+  {
+    "id": 2637,
+    "files": [
+      "/static/js/2637.0fd6659a.chunk.js"
+    ],
+    "referencedChunks": [
+      1803,
+      3027,
+      1885,
+      5330,
+      204
+    ]
+  },
+  {
+    "id": 6831,
+    "files": [
+      "/static/js/6831.b769835a.chunk.js"
+    ],
+    "referencedChunks": [
+      1803,
+      5370,
+      5529
     ]
   },
   {
@@ -963,17 +1134,6 @@
       8460,
       4857,
       4036
-    ]
-  },
-  {
-    "id": 7495,
-    "files": [
-      "/static/js/7495.1313944c.chunk.js"
-    ],
-    "referencedChunks": [
-      4857,
-      3134,
-      7401
     ]
   }
 ]

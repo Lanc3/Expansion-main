@@ -34,9 +34,9 @@ const BASE_ITEMS = [
     icon: FiUser,
   },
   {
-    label: 'Blog',
-    description: "Read Aaron's articles",
-    path: '/aarons-blog',
+    label: 'AI Research Labs',
+    description: 'Research articles and insights',
+    path: '/research',
     icon: FiFileText,
   },
   {
@@ -103,8 +103,14 @@ const ADMIN_ITEMS = [
     icon: FiFolder,
   },
   {
-    label: 'Blog posts',
-    description: 'Manage blog posts',
+    label: 'Research articles',
+    description: 'Manage Expansion AI Research Labs',
+    path: '/admin/research-articles',
+    icon: FiFileText,
+  },
+  {
+    label: 'Posts (legacy scaffold)',
+    description: 'Legacy Redwood posts table',
     path: '/posts',
     icon: FiFileText,
   },

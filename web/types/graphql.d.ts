@@ -96,8 +96,18 @@ export type CreateNicolaPostInput = {
 
 export type CreatePostInput = {
   Image?: InputMaybe<Scalars['String']>;
+  authorName?: InputMaybe<Scalars['String']>;
   body: Scalars['String'];
-  likeAmount: Scalars['Int'];
+  contentFormat?: InputMaybe<Scalars['String']>;
+  excerpt?: InputMaybe<Scalars['String']>;
+  featured?: InputMaybe<Scalars['Boolean']>;
+  likeAmount?: InputMaybe<Scalars['Int']>;
+  published?: InputMaybe<Scalars['Boolean']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  seoDescription?: InputMaybe<Scalars['String']>;
+  seoTitle?: InputMaybe<Scalars['String']>;
+  slug?: InputMaybe<Scalars['String']>;
+  tags?: InputMaybe<Array<Scalars['String']>>;
   title: Scalars['String'];
 };
 
@@ -528,11 +538,23 @@ export type NicolaPost = {
 export type Post = {
   __typename?: 'Post';
   Image?: Maybe<Scalars['String']>;
+  authorName?: Maybe<Scalars['String']>;
   body: Scalars['String'];
+  contentFormat: Scalars['String'];
   createdAt: Scalars['DateTime'];
+  excerpt?: Maybe<Scalars['String']>;
+  featured: Scalars['Boolean'];
   id: Scalars['Int'];
+  legacyNicolaPostId?: Maybe<Scalars['Int']>;
   likeAmount: Scalars['Int'];
+  published: Scalars['Boolean'];
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  seoDescription?: Maybe<Scalars['String']>;
+  seoTitle?: Maybe<Scalars['String']>;
+  slug: Scalars['String'];
+  tags: Array<Scalars['String']>;
   title: Scalars['String'];
+  updatedAt: Scalars['DateTime'];
 };
 
 export type PricingTier = {
@@ -608,8 +630,13 @@ export type Query = {
   processSteps: Array<ProcessStep>;
   projectData?: Maybe<ProjectData>;
   projectDatas: Array<ProjectData>;
+  publishedNicolaLegacySlug?: Maybe<Scalars['String']>;
+  publishedPostSlugById?: Maybe<Scalars['String']>;
   /** Fetches the Redwood root schema. */
   redwood?: Maybe<Redwood>;
+  researchArticle?: Maybe<Post>;
+  researchArticleDraft?: Maybe<Post>;
+  researchArticles: Array<Post>;
   service?: Maybe<Service>;
   serviceBySlug?: Maybe<Service>;
   services: Array<Service>;
@@ -688,6 +715,37 @@ export type QueryprocessStepArgs = {
 /** About the Redwood queries. */
 export type QueryprojectDataArgs = {
   id: Scalars['Int'];
+};
+
+
+/** About the Redwood queries. */
+export type QuerypublishedNicolaLegacySlugArgs = {
+  legacyId: Scalars['Int'];
+};
+
+
+/** About the Redwood queries. */
+export type QuerypublishedPostSlugByIdArgs = {
+  id: Scalars['Int'];
+};
+
+
+/** About the Redwood queries. */
+export type QueryresearchArticleArgs = {
+  slug: Scalars['String'];
+};
+
+
+/** About the Redwood queries. */
+export type QueryresearchArticleDraftArgs = {
+  slug: Scalars['String'];
+};
+
+
+/** About the Redwood queries. */
+export type QueryresearchArticlesArgs = {
+  skip?: InputMaybe<Scalars['Int']>;
+  take?: InputMaybe<Scalars['Int']>;
 };
 
 
@@ -857,8 +915,18 @@ export type UpdateNicolaPostInput = {
 
 export type UpdatePostInput = {
   Image?: InputMaybe<Scalars['String']>;
+  authorName?: InputMaybe<Scalars['String']>;
   body?: InputMaybe<Scalars['String']>;
+  contentFormat?: InputMaybe<Scalars['String']>;
+  excerpt?: InputMaybe<Scalars['String']>;
+  featured?: InputMaybe<Scalars['Boolean']>;
   likeAmount?: InputMaybe<Scalars['Int']>;
+  published?: InputMaybe<Scalars['Boolean']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  seoDescription?: InputMaybe<Scalars['String']>;
+  seoTitle?: InputMaybe<Scalars['String']>;
+  slug?: InputMaybe<Scalars['String']>;
+  tags?: InputMaybe<Array<Scalars['String']>>;
   title?: InputMaybe<Scalars['String']>;
 };
 
@@ -1210,6 +1278,33 @@ export type DeleteProcessStepAdminVariables = Exact<{
 
 export type DeleteProcessStepAdmin = { __typename?: 'Mutation', deleteProcessStep: { __typename?: 'ProcessStep', id: number } };
 
+export type EditResearchArticleByIdVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type EditResearchArticleById = { __typename?: 'Query', post?: { __typename?: 'Post', id: number, title: string, slug: string, body: string, excerpt?: string | null, tags: Array<string>, Image?: string | null, seoTitle?: string | null, seoDescription?: string | null, authorName?: string | null, published: boolean, publishedAt?: string | null, featured: boolean, contentFormat: string, likeAmount: number, createdAt: string, updatedAt: string } | null };
+
+export type UpdateResearchArticleVariables = Exact<{
+  id: Scalars['Int'];
+  input: UpdatePostInput;
+}>;
+
+
+export type UpdateResearchArticle = { __typename?: 'Mutation', updatePost: { __typename?: 'Post', id: number, slug: string } };
+
+export type AdminResearchPostsListVariables = Exact<{ [key: string]: never; }>;
+
+
+export type AdminResearchPostsList = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: number, title: string, slug: string, published: boolean, publishedAt?: string | null, updatedAt: string, featured: boolean }> };
+
+export type DeleteResearchPostVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type DeleteResearchPost = { __typename?: 'Mutation', deletePost: { __typename?: 'Post', id: number } };
+
 export type AdminEditServiceByIdVariables = Exact<{
   id: Scalars['Int'];
 }>;
@@ -1417,7 +1512,7 @@ export type ArticleQueryNicola = { __typename?: 'Query', article?: { __typename?
 export type ArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type ArticlesQuery = { __typename?: 'Query', articles: Array<{ __typename?: 'Post', id: number, title: string, body: string, createdAt: string, likeAmount: number }> };
+export type ArticlesQuery = { __typename?: 'Query', articles: Array<{ __typename?: 'Post', id: number, slug: string, title: string, body: string, createdAt: string, likeAmount: number, publishedAt?: string | null }> };
 
 export type FaqsPublicQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1507,20 +1602,27 @@ export type NicolasArticlesQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type NicolasArticlesQuery = { __typename?: 'Query', articles: Array<{ __typename?: 'NicolaPost', id: number, title: string, body: string, createdAt: string }> };
 
-export type UpdatePostMutationVariables = Exact<{
+export type EditPostByIdScaffoldVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type EditPostByIdScaffold = { __typename?: 'Query', post?: { __typename?: 'Post', id: number, title: string, slug: string, body: string, excerpt?: string | null, tags: Array<string>, Image?: string | null, seoTitle?: string | null, seoDescription?: string | null, authorName?: string | null, published: boolean, publishedAt?: string | null, featured: boolean, contentFormat: string, likeAmount: number, createdAt: string, updatedAt: string } | null };
+
+export type UpdatePostMutationScaffoldVariables = Exact<{
   id: Scalars['Int'];
   input: UpdatePostInput;
 }>;
 
 
-export type UpdatePostMutation = { __typename?: 'Mutation', updatePost: { __typename?: 'Post', id: number, title: string, body: string, createdAt: string, likeAmount: number, Image?: string | null } };
+export type UpdatePostMutationScaffold = { __typename?: 'Mutation', updatePost: { __typename?: 'Post', id: number, slug: string } };
 
-export type CreatePostMutationVariables = Exact<{
+export type CreatePostMutationScaffoldVariables = Exact<{
   input: CreatePostInput;
 }>;
 
 
-export type CreatePostMutation = { __typename?: 'Mutation', createPost: { __typename?: 'Post', id: number } };
+export type CreatePostMutationScaffold = { __typename?: 'Mutation', createPost: { __typename?: 'Post', id: number, slug: string } };
 
 export type DeletePostMutationVariables = Exact<{
   id: Scalars['Int'];
@@ -1534,12 +1636,12 @@ export type FindPostByIdVariables = Exact<{
 }>;
 
 
-export type FindPostById = { __typename?: 'Query', post?: { __typename?: 'Post', id: number, title: string, body: string, createdAt: string, likeAmount: number, Image?: string | null } | null };
+export type FindPostById = { __typename?: 'Query', post?: { __typename?: 'Post', id: number, title: string, slug: string, body: string, createdAt: string, published: boolean, likeAmount: number, Image?: string | null } | null };
 
 export type FindPostsVariables = Exact<{ [key: string]: never; }>;
 
 
-export type FindPosts = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: number, title: string, body: string, createdAt: string, likeAmount: number, Image?: string | null }> };
+export type FindPosts = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: number, title: string, slug: string, body: string, createdAt: string, updatedAt: string, published: boolean, likeAmount: number, Image?: string | null }> };
 
 export type PricingTiersPublicQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -1602,6 +1704,30 @@ export type RecentPostsQueryVariables = Exact<{ [key: string]: never; }>;
 
 export type RecentPostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', id: number, title: string, createdAt: string, body: string }> };
 
+export type RelatedResearchArticlesVariables = Exact<{ [key: string]: never; }>;
+
+
+export type RelatedResearchArticles = { __typename?: 'Query', researchArticles: Array<{ __typename?: 'Post', id: number, slug: string, title: string, publishedAt?: string | null, createdAt: string, body: string }> };
+
+export type ResearchArticleBySlugVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type ResearchArticleBySlug = { __typename?: 'Query', researchArticle?: { __typename?: 'Post', id: number, slug: string, title: string, body: string, excerpt?: string | null, tags: Array<string>, publishedAt?: string | null, createdAt: string, updatedAt: string, Image?: string | null, authorName?: string | null, seoTitle?: string | null, seoDescription?: string | null, contentFormat: string } | null };
+
+export type ResearchArticleDraftBySlugVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+export type ResearchArticleDraftBySlug = { __typename?: 'Query', researchArticleDraft?: { __typename?: 'Post', id: number, slug: string, title: string, body: string, excerpt?: string | null, tags: Array<string>, publishedAt?: string | null, createdAt: string, updatedAt: string, Image?: string | null, authorName?: string | null, seoTitle?: string | null, seoDescription?: string | null, contentFormat: string, published: boolean } | null };
+
+export type ResearchArticlesPublicVariables = Exact<{ [key: string]: never; }>;
+
+
+export type ResearchArticlesPublic = { __typename?: 'Query', researchArticles: Array<{ __typename?: 'Post', id: number, slug: string, title: string, excerpt?: string | null, body: string, tags: Array<string>, publishedAt?: string | null, createdAt: string, Image?: string | null, authorName?: string | null, featured: boolean }> };
+
 export type ServiceBySlugQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;
@@ -1613,6 +1739,13 @@ export type TeamMembersPublicQueryVariables = Exact<{ [key: string]: never; }>;
 
 
 export type TeamMembersPublicQuery = { __typename?: 'Query', teamMembers: Array<{ __typename?: 'TeamMember', id: number, name: string, role: string, bio: string, image?: string | null, linkedin?: string | null, github?: string | null, email?: string | null, order: number, isActive: boolean }> };
+
+export type PublishedPostSlugByIdVariables = Exact<{
+  id: Scalars['Int'];
+}>;
+
+
+export type PublishedPostSlugById = { __typename?: 'Query', publishedPostSlugById?: string | null };
 
 export type CreateClientLogoAdminVariables = Exact<{
   input: CreateClientLogoInput;
@@ -1649,6 +1782,13 @@ export type CreateProcessStepAdminVariables = Exact<{
 
 export type CreateProcessStepAdmin = { __typename?: 'Mutation', createProcessStep: { __typename?: 'ProcessStep', id: number } };
 
+export type CreateResearchArticleVariables = Exact<{
+  input: CreatePostInput;
+}>;
+
+
+export type CreateResearchArticle = { __typename?: 'Mutation', createPost: { __typename?: 'Post', id: number, slug: string } };
+
 export type AdminCreateTeamMemberVariables = Exact<{
   input: CreateTeamMemberInput;
 }>;
@@ -1666,7 +1806,7 @@ export type AdminCreateTestimonial = { __typename?: 'Mutation', createTestimonia
 export type DashboardStatsVariables = Exact<{ [key: string]: never; }>;
 
 
-export type DashboardStats = { __typename?: 'Query', projectDatas: Array<{ __typename?: 'ProjectData', id: number }>, posts: Array<{ __typename?: 'Post', id: number }>, contactSubmissions: Array<{ __typename?: 'ContactSubmission', id: number }>, newsletterSubscribers: Array<{ __typename?: 'NewsletterSubscriber', id: number }> };
+export type DashboardStats = { __typename?: 'Query', projectDatas: Array<{ __typename?: 'ProjectData', id: number }>, posts: Array<{ __typename?: 'Post', id: number, published: boolean }>, contactSubmissions: Array<{ __typename?: 'ContactSubmission', id: number }>, newsletterSubscribers: Array<{ __typename?: 'NewsletterSubscriber', id: number }> };
 
 export type CreateContactSubmissionVariables = Exact<{
   input: CreateContactSubmissionInput;
@@ -1684,3 +1824,10 @@ export type HomePageTechnologiesVariables = Exact<{ [key: string]: never; }>;
 
 
 export type HomePageTechnologies = { __typename?: 'Query', technologies: Array<{ __typename?: 'Technology', id: number, name: string, icon: string, category: string, proficiency: string, order: number, isActive: boolean }> };
+
+export type PublishedNicolaLegacySlugVariables = Exact<{
+  legacyId: Scalars['Int'];
+}>;
+
+
+export type PublishedNicolaLegacySlug = { __typename?: 'Query', publishedNicolaLegacySlug?: string | null };

@@ -13,6 +13,10 @@ import {
 // https://redwoodjs.com/docs/testing#jest-expect-type-considerations
 
 describe('nicolaPosts', () => {
+  beforeEach(() => {
+    mockCurrentUser({ id: 1, roles: 'admin' })
+  })
+
   scenario('returns all nicolaPosts', async (scenario) => {
     const result = await nicolaPosts()
 

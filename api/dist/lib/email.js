@@ -84,7 +84,7 @@ const sendAutoReply = async ({
       <ul>
         <li><a href="https://www.expansion.ie/services">Our Services</a></li>
         <li><a href="https://www.expansion.ie/process">How We Work</a></li>
-        <li><a href="https://www.expansion.ie/aarons-blog">Our Blog</a></li>
+        <li><a href="https://www.expansion.ie/research">AI Research Labs</a></li>
       </ul>
       <p>Best regards,<br />Aaron Keating<br />Expansion.ie</p>
     `

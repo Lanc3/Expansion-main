@@ -1,0 +1,2 @@
+/*! For license information please see RedirectToResearchLabsPage.731785e7.chunk.js.LICENSE.txt */
+"use strict";(self.webpackChunkweb=self.webpackChunkweb||[]).push([[9422],{76206:function(e,t,n){n.r(t);var a=n(27378),c=n(98889);t.default=function(){return(0,a.useEffect)((function(){(0,c.navigate)(c.routes.researchLabs(),{replace:!0})}),[]),a.createElement("p",{className:"p-12 text-center font-mono text-sm text-gray-400"},"Redirecting…")}}}]);

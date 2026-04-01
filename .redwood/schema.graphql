@@ -84,8 +84,18 @@ input CreateNicolaPostInput {
 
 input CreatePostInput {
   Image: String
+  authorName: String
   body: String!
-  likeAmount: Int!
+  contentFormat: String
+  excerpt: String
+  featured: Boolean
+  likeAmount: Int
+  published: Boolean
+  publishedAt: DateTime
+  seoDescription: String
+  seoTitle: String
+  slug: String
+  tags: [String!]
   title: String!
 }
 
@@ -273,11 +283,23 @@ type NicolaPost {
 
 type Post {
   Image: String
+  authorName: String
   body: String!
+  contentFormat: String!
   createdAt: DateTime!
+  excerpt: String
+  featured: Boolean!
   id: Int!
+  legacyNicolaPostId: Int
   likeAmount: Int!
+  published: Boolean!
+  publishedAt: DateTime
+  seoDescription: String
+  seoTitle: String
+  slug: String!
+  tags: [String!]!
   title: String!
+  updatedAt: DateTime!
 }
 
 type PricingTier {
@@ -349,9 +371,14 @@ type Query {
   processSteps: [ProcessStep!]!
   projectData(id: Int!): ProjectData
   projectDatas: [ProjectData!]!
+  publishedNicolaLegacySlug(legacyId: Int!): String
+  publishedPostSlugById(id: Int!): String
 
   """Fetches the Redwood root schema."""
   redwood: Redwood
+  researchArticle(slug: String!): Post
+  researchArticleDraft(slug: String!): Post
+  researchArticles(skip: Int, take: Int): [Post!]!
   service(id: Int!): Service
   serviceBySlug(slug: String!): Service
   services: [Service!]!
@@ -489,8 +516,18 @@ input UpdateNicolaPostInput {
 
 input UpdatePostInput {
   Image: String
+  authorName: String
   body: String
+  contentFormat: String
+  excerpt: String
+  featured: Boolean
   likeAmount: Int
+  published: Boolean
+  publishedAt: DateTime
+  seoDescription: String
+  seoTitle: String
+  slug: String
+  tags: [String!]
   title: String
 }
 

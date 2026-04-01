@@ -1,0 +1,11 @@
+import gql from "graphql-tag";
+export const schema = gql`
+  type Query {
+    researchArticles(take: Int, skip: Int): [Post!]! @skipAuth
+    researchArticle(slug: String!): Post @skipAuth
+    publishedPostSlugById(id: Int!): String @skipAuth
+    publishedNicolaLegacySlug(legacyId: Int!): String @skipAuth
+    researchArticleDraft(slug: String!): Post @requireAuth
+  }
+`;
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJuYW1lcyI6WyJncWwiLCJzY2hlbWEiXSwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9hcGkvc3JjL2dyYXBocWwvcmVzZWFyY2hBcnRpY2xlcy5zZGwuanMiXSwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGNvbnN0IHNjaGVtYSA9IGdxbGBcbiAgdHlwZSBRdWVyeSB7XG4gICAgcmVzZWFyY2hBcnRpY2xlcyh0YWtlOiBJbnQsIHNraXA6IEludCk6IFtQb3N0IV0hIEBza2lwQXV0aFxuICAgIHJlc2VhcmNoQXJ0aWNsZShzbHVnOiBTdHJpbmchKTogUG9zdCBAc2tpcEF1dGhcbiAgICBwdWJsaXNoZWRQb3N0U2x1Z0J5SWQoaWQ6IEludCEpOiBTdHJpbmcgQHNraXBBdXRoXG4gICAgcHVibGlzaGVkTmljb2xhTGVnYWN5U2x1ZyhsZWdhY3lJZDogSW50ISk6IFN0cmluZyBAc2tpcEF1dGhcbiAgICByZXNlYXJjaEFydGljbGVEcmFmdChzbHVnOiBTdHJpbmchKTogUG9zdCBAcmVxdWlyZUF1dGhcbiAgfVxuYFxuIl0sIm1hcHBpbmdzIjoiT0FBc0JBLEdBQUc7QUFBekIsT0FBTyxNQUFNQyxNQUFNLEdBQUdELEdBQUk7QUFDMUI7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQSxDQUFDIn0=
