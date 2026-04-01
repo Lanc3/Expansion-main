@@ -58,8 +58,8 @@ const AppBanner = () => {
           <FiZap size={14} /> Software Engineering Studio
         </div>
         <h1 className="text-fluid-5xl font-bold tracking-tighter leading-none mb-4 sm:mb-6">
-          WE ENGINEER <br />
-          <span className="gradient-text">SOFTWARE, AI & GAMES.</span>
+          WE DEVELOPE <br />
+          <span className="gradient-text">CUSTOM SOFTWARE SOLUTIONS.</span>
         </h1>
         <p className="text-fluid-base text-gray-400 max-w-2xl font-light leading-relaxed">
           From AI automation to game development — we build production-grade

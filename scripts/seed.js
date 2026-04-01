@@ -817,6 +817,1058 @@ For questions about these Terms:
     console.log(`Seeded ${siteSettings.length} site settings`)
 
     // ============================================
+    // RESEARCH ARTICLES — Expansion AI Research Labs
+    // ============================================
+    const researchArticles = [
+      {
+        title:
+          'What 16GB of VRAM Can Really Do: Small Models, Business Automation, and Building Software Around an LLM',
+        slug: 'small-models-16gb-vram-business-automation',
+        excerpt:
+          'A practical field report on what small local models can actually do on 16GB of VRAM, where they break, and how prompt engineering plus deterministic software design turns them into useful business systems.',
+        Image:
+          'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1600&q=80&auto=format&fit=crop',
+        tags: ['small-models', 'local-ai', 'automation', 'prompt-engineering'],
+        seoTitle:
+          'Small Models on 16GB VRAM for Business Automation | Expansion AI Research Labs',
+        seoDescription:
+          'What we learned from exploring Qwen, Mistral, and LFM-class small models on 16GB VRAM, and how to build real business automation systems around local LLMs.',
+        authorName: 'Aaron Keating',
+        published: true,
+        publishedAt: new Date('2026-03-24T09:00:00.000Z'),
+        featured: false,
+        contentFormat: 'markdown',
+        body: `# The Question We Started With
+
+The first serious question we asked was not, "What is the biggest model we can run?" It was, "What is the smallest model we can trust to do paid work?"
+
+That one shift in perspective changed everything.
+
+A lab built around local AI has to live in the world of constraints. Power draw matters. Latency matters. Deployment simplicity matters. Hardware budget matters. Privacy matters. And if the model is going to sit inside a real business workflow, reliability matters far more than leaderboard theater.
+
+That is why we became obsessed with the class of small models that can live comfortably on 16GB of VRAM. They are cheap enough to experiment with, fast enough to iterate on, and close enough to production reality that every lesson transfers into software you can actually ship.
+
+## The Models We Spent Time With
+
+We explored a wide spread of small local models and model families:
+
+- Qwen 2.5 Coder Instruct for code-leaning reasoning and structured software tasks
+- Qwen 3.5 class models for broader instruction following and practical assistant behavior
+- Mistral-family models for strong baseline language performance and fast iteration
+- LFM 2.5 from Liquid AI, which immediately stood out to us as one of the most interesting directions in compact model behavior
+
+Each model had a personality. Some were better at structured transformations. Some handled instructions cleanly but lost discipline under long context. Some felt impressive in a chat demo and then collapsed when asked to behave like a system component.
+
+That distinction matters. A useful business model is not the one that gives the most exciting answer. It is the one that repeatedly gives the right shape of answer inside a larger workflow.
+
+## What Small Models Can Already Automate
+
+The most useful insight from this exploration is that small models are not general replacements for large frontier systems. They are specialized operators. When you put them inside well-designed software, they become surprisingly capable.
+
+Tasks they are already well suited for include:
+
+- document classification and routing
+- extracting fields from messy text into structured JSON
+- cleaning up internal notes, tickets, and CRM records
+- summarizing long documents into role-specific briefs
+- customer support triage and response drafting
+- internal knowledge search with answer synthesis
+- transforming one business format into another
+- report preparation from partially structured inputs
+- proposal scaffolding and scope-draft generation
+- tagging, clustering, and normalizing inbound business data
+
+In other words: the best early wins are not "replace the whole company with one model." The best wins are "remove the repetitive cognitive glue work between systems."
+
+## The Most Important Lesson: Build Around the Model
+
+The biggest mistake people make with small models is asking them to behave like magic. The second biggest mistake is giving them too much authority with too little structure.
+
+We learned very quickly that the right question is:
+
+**What part of this workflow should be probabilistic, and what part should be deterministic?**
+
+A good small-model system usually looks like this:
+
+1. deterministic software gathers the right inputs
+2. the model performs a narrow language or reasoning transformation
+3. deterministic software validates, routes, stores, or retries the result
+
+That means the LLM is not the product by itself. The LLM is a component inside the product.
+
+When you design systems this way, prompt engineering stops being vague art and starts becoming interface design.
+
+## What We Learned About Prompt Engineering
+
+The phrase "prompt engineering" gets mocked because it is often treated like copywriting for chatbots. That is not how we see it.
+
+In real systems, prompts act more like runtime policy.
+
+We learned to care deeply about:
+
+- role definition
+- response format
+- failure behavior
+- tool boundaries
+- forbidden assumptions
+- confidence signaling
+- explicit output contracts
+
+The system prompt is where you teach the model what job it has. The user prompt is where you describe the current task. The surrounding application is what gives both of those things meaning.
+
+A weak software system asks the model a question and hopes for brilliance.
+
+A strong software system tells the model:
+
+- what it is
+- what it is not
+- what inputs it may trust
+- what output shape is acceptable
+- what to do when information is missing
+- when to stop and ask for help
+
+This is especially important with small models because they have less room to recover from ambiguity. You are not just prompting them. You are reducing entropy.
+
+## Where Small Models Break
+
+We also learned not to romanticize them.
+
+Small models break when:
+
+- context windows are overloaded with irrelevant information
+- tasks require too much latent world knowledge
+- instructions conflict or arrive in the wrong order
+- multi-step reasoning is left entirely inside one response
+- the system expects flawless factual recall from the model alone
+- output validation is missing
+
+This is why software design matters so much. If the model is weak at arithmetic, do not "hope harder" with the prompt. Give it a deterministic calculation step. If the model is weak at exact retrieval, build retrieval. If it becomes unstable over long tasks, chunk the job and track state explicitly.
+
+The line between language ability and systems engineering became clearer every week we worked with these models.
+
+## Why LFM 2.5 Got Our Attention
+
+Among all the models we explored, LFM 2.5 triggered something stronger than technical curiosity. It triggered strategy.
+
+What fascinated us was not just that it was compact. It was that it hinted at a future where smaller models are not consolation prizes. They are the right instruments for specific domains.
+
+That changed our thinking from:
+
+"How do we use whatever model is available?"
+
+to:
+
+"How do we build a lab that learns how to gather, shape, and train data for purpose-built small models?"
+
+That is the moment the idea of **Expansion AI Research Labs** stopped sounding like a nice brand name and started sounding like a real mission.
+
+## The Business Opportunity
+
+For business automation, small local models create a very attractive operating window:
+
+- lower inference cost
+- easier on-prem or private deployment
+- faster iteration loops
+- greater control over prompts and system behavior
+- simpler product packaging for niche use cases
+
+Most businesses do not need one god-model. They need five dependable workflows:
+
+- intake
+- classify
+- extract
+- summarize
+- decide what happens next
+
+If a small model can do those things with strong software around it, the economics become compelling very quickly.
+
+## Where This Led Us
+
+That work led us to a bigger thesis:
+
+- first, understand what small models can already do
+- second, gather high-quality domain data
+- third, determine what should be trained into the model
+- fourth, engineer the rest deterministically around it
+- finally, orchestrate multiple narrow experts into a coherent system
+
+That is the path that became this lab.
+
+This first article is really the origin story. It is the point where local models stopped being a side interest and became a research direction.
+
+We did not walk away thinking small models were sufficient on their own.
+
+We walked away with a better conclusion:
+
+small models become powerful when you stop treating them like answers and start treating them like components.`,
+      },
+      {
+        title:
+          'KnowledgeForge and the First Real Problem in Any AI Lab: High-Quality, Training-Ready Data',
+        slug: 'knowledgeforge-data-curation-first-problem-ai-lab',
+        excerpt:
+          'A deep look at KnowledgeForge, the dataset curation app we are building to turn raw web content, uploads, and APIs into scored, deduplicated, export-ready training data.',
+        Image:
+          'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80&auto=format&fit=crop',
+        tags: ['datasets', 'knowledgeforge', 'data-curation', 'training-data'],
+        seoTitle:
+          'KnowledgeForge and the Data Problem in AI Labs | Expansion AI Research Labs',
+        seoDescription:
+          'Why the hardest early problem in AI is not model selection but dataset quality, and how KnowledgeForge approaches crawl planning, curation, scoring, deduplication, and export.',
+        authorName: 'Aaron Keating',
+        published: true,
+        publishedAt: new Date('2026-03-26T09:00:00.000Z'),
+        featured: false,
+        contentFormat: 'markdown',
+        body: `# Every AI Lab Hits the Same Wall
+
+The romance of AI usually starts with models.
+
+The reality starts with data.
+
+Once we began taking small-model research seriously, we hit the same wall that nearly every serious team hits: raw information is everywhere, but **training-ready data is rare**.
+
+Articles are noisy. Forums are repetitive. Scraped pages are messy. Internal documents are inconsistent. APIs expose useful pieces, but rarely in the shape a training pipeline wants. And even when you gather enough material, quantity is not quality.
+
+That is the problem **KnowledgeForge** is designed to solve.
+
+## What KnowledgeForge Actually Does
+
+KnowledgeForge is not just a web scraper, and it is not just an export utility. It is a **dataset curation system**.
+
+The workflow begins with a goal. From there the app generates a crawl plan, identifies useful source priorities, and estimates the type of samples worth collecting. That matters because data collection without a plan becomes hoarding very quickly.
+
+From there, the system ingests from multiple pathways:
+
+- web search and page scraping
+- API sources such as technical or public knowledge systems
+- uploaded local files
+
+What comes in is not treated as finished material. It is treated as raw ore.
+
+## The Pipeline That Changed Our Thinking
+
+What makes KnowledgeForge interesting is the multi-stage curation pipeline:
+
+- extract
+- clean
+- rewrite
+- structure
+- score
+- deduplicate
+- filter
+
+That sequence captures a very important truth: a useful dataset is **manufactured**, not merely collected.
+
+The raw input might contain useful facts, examples, and patterns, but it is still tangled in formatting noise, duplicated concepts, off-topic detours, and inconsistent language. If you want a model to learn cleanly, your pipeline has to do the work your future training run cannot do for you.
+
+## Why Structured Data Matters
+
+One of the most valuable design decisions in this project is the insistence on structured outputs. Instead of letting the pipeline remain a vague text refinery, it aims toward training-oriented shapes such as:
+
+- instruction
+- input
+- output
+
+That is important because it creates a contract between curation and downstream fine-tuning. The export step is not improvisation. It is a handoff.
+
+Once you can reliably move from messy source material to scored, structured examples, you can export into formats that fit real training workflows. That is the difference between a research toy and a lab tool.
+
+## Why Deduplication and Scoring Are Not Optional
+
+Another lesson we learned is that duplication destroys dataset quality quietly.
+
+It inflates confidence. It gives the illusion of coverage. It tricks you into thinking you have depth when you really have repetition.
+
+KnowledgeForge attacks this with both similarity-aware deduplication and scoring logic. Those mechanisms matter because dataset quality is not only about whether each individual item is decent. It is about whether the whole corpus teaches the model efficiently.
+
+We care about:
+
+- coherence
+- usefulness
+- uniqueness
+- domain fit
+
+Those are exactly the kinds of signals that determine whether a dataset creates a brittle parrot or a genuinely useful specialist.
+
+## Why This Is the First Problem in Any LLM Endeavor
+
+People often speak about training as though data gathering is the warm-up. In practice, data gathering and curation are the first real research problem.
+
+Before you ask:
+
+- which base model to use
+- how many epochs to train
+- what adapter strategy to choose
+- how to benchmark the result
+
+you first need to answer:
+
+- what do we want the model to know?
+- what examples teach that well?
+- what examples teach it badly?
+- what noise will poison the training run?
+- what shape does the training pipeline expect?
+
+That is why this project matters so much to our lab. It is not a side utility. It is the front gate.
+
+## The Bigger Insight: Data Quality Is a Product
+
+Working on KnowledgeForge pushed us toward a stronger belief:
+
+**High-quality datasets are a product in their own right.**
+
+That product has:
+
+- user flows
+- approval steps
+- observability
+- scoring
+- exports
+- support bundles
+- operational safety concerns
+
+The app reflects that. It is not built as a hidden script folder. It is built as a system with setup, planning, ingestion, processing, inspection, and export. That full loop matters because serious data work needs traceability.
+
+If a sample gets into a dataset, we want to know where it came from, what stages transformed it, why it scored the way it did, and whether it should survive into export.
+
+That is lab discipline.
+
+## What We Learned While Building It
+
+Three lessons stood out:
+
+### 1. Collection without curation is mostly noise
+
+A huge raw corpus can still be a weak training asset. Scale only helps once the pipeline is removing friction, duplication, and ambiguity.
+
+### 2. A dataset needs an editorial point of view
+
+If you do not know what makes a sample useful, the model will inherit your uncertainty. Curation is where a lab encodes its standards.
+
+### 3. Training readiness is a systems problem
+
+Good datasets do not emerge from one prompt. They emerge from workflow design, storage design, scoring design, dedup design, and export discipline.
+
+## Why KnowledgeForge Is Step One for the Lab
+
+Expansion AI Research Labs exists because we want to build small, capable, domain-focused AI systems.
+
+But if that is the goal, then the first thing we need is not a better slogan or a louder model demo.
+
+We need the ability to:
+
+- gather domain material deliberately
+- refine it into clean, high-signal examples
+- score and inspect the output
+- export it into formats suitable for fine-tuning and evaluation
+
+That is exactly why KnowledgeForge is one of the foundational projects in this lab.
+
+It solves the first serious bottleneck in any AI endeavor:
+
+not running the model,
+
+but deciding what the model should be allowed to learn from.`,
+      },
+      {
+        title:
+          'Train the Model or Engineer the System? The Real Boundary of Small-Model Intelligence',
+        slug: 'train-the-model-or-engineer-the-system-small-llms',
+        excerpt:
+          'When should you train a small model to become an expert, and when should you keep the model narrow and build deterministic systems around it instead? This article explores that boundary.',
+        Image:
+          'https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=1600&q=80&auto=format&fit=crop',
+        tags: ['small-llms', 'deterministic-systems', 'training', 'liquid-models'],
+        seoTitle:
+          'Train the Model or Engineer the System? | Expansion AI Research Labs',
+        seoDescription:
+          'A practical framework for deciding when to fine-tune or specialize a small model and when to solve the problem with deterministic software instead.',
+        authorName: 'Aaron Keating',
+        published: true,
+        publishedAt: new Date('2026-03-28T09:00:00.000Z'),
+        featured: false,
+        contentFormat: 'markdown',
+        body: `# The Most Important Architecture Question
+
+Once you start building with small models, one question appears everywhere:
+
+**Should this capability live inside the model, or outside it?**
+
+That question is much more important than people think.
+
+If you push too much into the model, you get fragile systems, hard-to-debug failures, and expensive retraining cycles. If you push too much into deterministic code, you miss the flexibility that makes language models valuable in the first place.
+
+The craft is in drawing the boundary correctly.
+
+## What Small Models Are Good At Internally
+
+A small model can be excellent at narrow internal competencies such as:
+
+- tone and style transfer
+- domain-specific language patterns
+- structured interpretation of messy text
+- lightweight reasoning over well-framed tasks
+- classification and ranking under clear schemas
+- summarization and condensation
+
+These are the kinds of capabilities that benefit from specialization. When the same pattern appears repeatedly, training or adaptation can make sense.
+
+That is why we are interested in the idea of re-training or specializing liquid-style models on carefully curated data. Not because every problem needs a custom model, but because certain narrow domains reward compact, well-shaped internal knowledge.
+
+## What Should Stay Deterministic
+
+On the other hand, some capabilities should almost never be left to the model alone:
+
+- arithmetic with business consequences
+- compliance rules
+- exact lookups
+- pricing logic
+- workflow state transitions
+- permission checks
+- external system writes
+- irreversible actions
+
+These are deterministic responsibilities.
+
+A model can recommend. A model can translate intent. A model can explain choices. But when the task requires exactness, reproducibility, or auditability, the surrounding system should own the outcome.
+
+This is the line we keep returning to:
+
+**Use the LLM for ambiguity. Use deterministic tools for truth.**
+
+## The Expert Model vs the Expert System
+
+A lot of teams ask whether they should train a model to be an expert in a narrow area.
+
+That can be the right move when:
+
+- the task is language-heavy
+- examples are abundant and high quality
+- the domain has consistent patterns
+- low latency matters
+- the required output style is stable
+
+But many so-called "expert model" problems are actually "expert system" problems in disguise.
+
+For example:
+
+- if the job is to choose the right internal policy section, retrieval may matter more than training
+- if the job is to apply business rules, deterministic logic may matter more than latent reasoning
+- if the job is to generate exact structured outputs, validators and repair loops may matter more than smarter weights
+
+We increasingly see success coming from a hybrid:
+
+- keep the model narrow
+- teach it the domain language
+- keep critical truth external
+- build a deterministic execution layer around it
+
+## What This Means for Small Business AI
+
+For small business automation, this distinction is vital.
+
+A model does not need to become an entire accountant, operations manager, sales coordinator, and support lead.
+
+It needs to become excellent at specific subtasks:
+
+- reading messy inbound information
+- classifying intent
+- drafting structured responses
+- extracting the right fields
+- asking the next useful question
+
+Then the system around it can:
+
+- validate numbers
+- call tools
+- fetch records
+- enforce rules
+- route work
+- store outputs
+
+That combination is what makes small models commercially viable.
+
+## Why We Are Interested in Liquid-Style Specialization
+
+Part of our research direction is the idea of taking an efficient liquid-style model and making it much better at small, valuable domains using the right data.
+
+This is where the work from KnowledgeForge becomes essential. You cannot responsibly specialize a model unless the dataset is curated, labeled, and genuinely representative of the task.
+
+The dream is not "train one model to know everything."
+
+The dream is:
+
+- gather high-signal domain material
+- strip noise aggressively
+- shape the examples deliberately
+- train or adapt the model for a narrow class of work
+- wrap that model in a deterministic product system
+
+That is how small models become useful, trustworthy specialists.
+
+## A Concrete Example: Small Business Tasks
+
+Imagine a model specialized for a narrow band of small-business operations:
+
+- invoice intake
+- order email classification
+- supplier communication drafting
+- CRM cleanup
+- lead qualification summaries
+- support ticket normalization
+
+The specialized model handles messy language and intent.
+
+The deterministic system around it handles:
+
+- exact schema validation
+- database reads and writes
+- known business rules
+- retry flows
+- audit logs
+- tool invocation
+
+That is not an LLM replacing the business.
+
+That is an LLM becoming a reliable layer inside the business.
+
+## Another Example: Game NPCs
+
+We are also fascinated by the opposite kind of specialization: not purely operational, but experiential.
+
+Imagine training a compact liquid-style model to behave as an NPC mind inside a fantasy game:
+
+- trained on fantasy lore
+- trained on old-form language patterns
+- trained on the social rules of the world
+- trained to preserve tone, cadence, and setting
+
+The model does not need to understand modern business correspondence in that context. It needs to speak like the world it belongs to.
+
+Even there, the same system principle applies.
+
+The model can generate language and role-consistent behavior.
+
+The game system still owns:
+
+- quest state
+- combat logic
+- item truth
+- relationship counters
+- world rules
+
+Again, the model handles ambiguity and expression. The system handles truth and consequence.
+
+## The Real Decision Framework
+
+When deciding whether to train the model or engineer the system, we ask:
+
+### Train the model when:
+
+- the value is in language behavior
+- the pattern is repeated often
+- the domain can be represented with strong examples
+- the task benefits from internalized style or compact latent knowledge
+
+### Engineer the system when:
+
+- correctness matters more than fluency
+- the answer exists in a database, ruleset, or external tool
+- outcomes must be reproducible
+- the task can be decomposed into explicit steps
+
+### Do both when:
+
+- the model interprets the messy world
+- the system acts on the clean world
+
+That hybrid pattern is where we think most practical small-model products will live.
+
+## Our Current Belief
+
+We no longer think the future belongs to one giant model asked to do everything.
+
+We think the future belongs to:
+
+- better data
+- narrower experts
+- cleaner boundaries
+- stronger deterministic systems
+- tighter orchestration
+
+The model should know enough to be useful.
+
+The system should know enough to keep it honest.
+
+That is the boundary we are researching now, and it is one of the central design principles behind Expansion AI Research Labs.`,
+      },
+      {
+        title:
+          'Why Local AI Systems Live or Die by Orchestration: Swarms, Context Budgets, and Deterministic Checkpoints',
+        slug: 'why-local-ai-systems-live-or-die-by-orchestration',
+        excerpt:
+          'A local model is only as useful as the orchestrator around it. Here we explore task decomposition, context control, agent swarms, and the deterministic checkpoints that make small-model systems reliable.',
+        Image:
+          'https://images.unsplash.com/photo-1526378800651-c996ea0b5d07?w=1600&q=80&auto=format&fit=crop',
+        tags: ['orchestration', 'agent-swarms', 'context-engineering', 'local-ai'],
+        seoTitle:
+          'Why Local AI Systems Live or Die by Orchestration | Expansion AI Research Labs',
+        seoDescription:
+          'How we think about orchestrator lifecycles, context budgets, agent swarms, tool routing, and deterministic checkpoints for local small-model systems.',
+        authorName: 'Aaron Keating',
+        published: true,
+        publishedAt: new Date('2026-03-30T09:00:00.000Z'),
+        featured: false,
+        contentFormat: 'markdown',
+        body: `# The Model Is Not the System
+
+One of the fastest ways to fail with local AI is to over-focus on model choice and under-invest in orchestration.
+
+The difference between a promising local prototype and a dependable production system is usually not a few leaderboard points. It is the quality of the orchestrator.
+
+When we talk about orchestration, we mean the full lifecycle around the model:
+
+- how work is decomposed
+- how context is selected
+- how tools are called
+- how state is tracked
+- how failures are handled
+- how multiple agent roles coordinate
+
+For local systems, this matters even more because the margin for waste is smaller. Small models do not tolerate sloppy context management.
+
+## Why Agentic Systems Need Structure
+
+When a task becomes complex enough, one model invocation is the wrong unit of work.
+
+Instead, we break work into roles:
+
+- planner
+- researcher
+- extractor
+- tool operator
+- validator
+- summarizer
+- QA reviewer
+
+That is where the idea of agentic swarms becomes useful. Not because more agents are automatically better, but because specialized roles reduce cognitive overload per step.
+
+The orchestrator decides:
+
+- who should act next
+- what context that agent should receive
+- what success looks like for that step
+- whether the result should be accepted, repaired, or rerun
+
+Without that structure, the system becomes a chat log pretending to be software.
+
+## The Context Problem Is the Real Problem
+
+Small local models do not usually fail because they are unintelligent in the abstract. They fail because we bury them in the wrong context.
+
+That is why we think a serious orchestrator needs a **master context engine**.
+
+Its job is to track the total task state and decide, at each step, how to budget the context window.
+
+Not all agents need the same context mix.
+
+For one agent, the right ratio may be:
+
+- 40% system policy
+- 20% current task
+- 20% retrieved knowledge
+- 20% recent execution history
+
+For another agent, it may be:
+
+- 20% system policy
+- 15% task framing
+- 45% tool or RAG context
+- 20% strict output contract
+
+That is the kind of detail that separates impressive demos from reliable behavior.
+
+## Orchestrator Lifecycle
+
+A strong orchestrator should move through a repeatable lifecycle:
+
+1. understand the task
+2. decompose it into bounded subproblems
+3. assign a role to the next step
+4. build a context package for that role
+5. invoke the model or tool
+6. validate the result
+7. update global state
+8. decide whether to continue, branch, retry, or finish
+
+The crucial idea here is that global state should not be implied by the chat history. It should be tracked explicitly.
+
+That state can include:
+
+- task objective
+- completed steps
+- pending branches
+- retrieved facts
+- validated outputs
+- unresolved ambiguities
+- tool results
+- failure notes
+
+This is the beginning of a real context engine.
+
+## When to Chunk Work
+
+Chunking is not just for documents. It is for cognition.
+
+If a task asks a small model to:
+
+- understand a large body of source material
+- infer priorities
+- generate structured output
+- cross-check edge cases
+- propose next actions
+
+all at once, you are setting it up to fail.
+
+Chunking works because it lowers the burden per step. It allows the orchestrator to preserve signal and discard noise between stages.
+
+In practice, this means:
+
+- splitting research from synthesis
+- splitting extraction from validation
+- splitting planning from execution
+- splitting execution from QA
+
+Every time we do this well, the system becomes more stable.
+
+## Parameters Are Behavioral Controls
+
+A lot of people treat parameters like temperature, top_k, and similar controls as minor tuning knobs.
+
+We do not.
+
+For orchestrated systems, parameters are behavior controls.
+
+Different agent roles may need very different operating modes:
+
+- low-temperature validation agents
+- moderate-temperature drafting agents
+- constrained classification agents
+- slightly more exploratory planning agents
+
+You are not only selecting a model. You are selecting how that model should behave in a given role.
+
+That is why one-size-fits-all runtime settings often produce disappointing results. The orchestration layer should own role-specific model behavior.
+
+## Deterministic Checkpoints
+
+Even in a swarm system, there are moments where probability must stop.
+
+We use deterministic checkpoints as a way to keep the system aligned:
+
+- schema validation
+- business rule checks
+- guardrails before side effects
+- approval gates for risky actions
+- explicit QA before completion
+
+This is essential.
+
+If a planner decides the task is complete, that should not automatically become truth. Completion is not a vibe. It is a validated state transition.
+
+This is one of the most important ideas in local AI engineering:
+
+**stochastic reasoning should flow into deterministic acceptance.**
+
+## Why This Matters More for Local Models
+
+Large hosted models can sometimes brute-force their way through bad orchestration because they have more reasoning capacity and more room to absorb noisy prompts.
+
+Small local models do not forgive that kind of laziness.
+
+They punish:
+
+- bloated context
+- weak role definitions
+- missing validation
+- mixed objectives
+- unbounded tasks
+
+But they also reward discipline.
+
+When the orchestrator is good, small models become fast, cheap, and surprisingly dependable.
+
+## The System We Want to Build
+
+Our direction is toward orchestrators that do more than route prompts. We want systems that:
+
+- track total task context explicitly
+- dynamically budget context per agent
+- separate internal memory from transient working memory
+- decide when to call tools instead of the model
+- tune role-specific runtime behavior
+- preserve validated truth across long multi-step workflows
+
+That is how agentic swarms become useful for real business tasks.
+
+## Final Thought
+
+A local model by itself is an engine.
+
+An orchestrator is the transmission, the dashboard, the braking system, the memory, and the route planner.
+
+If the orchestrator is weak, the whole machine feels weak.
+
+If the orchestrator is strong, even a small model can participate in systems that look far larger than the raw model would suggest.
+
+That is why we believe orchestration is not the supporting detail.
+
+It is the discipline that turns local intelligence into software.`,
+      },
+      {
+        title:
+          'Launching Expansion AI Research Labs: From Small Models to Data, Training, and Agentic Systems',
+        slug: 'launching-expansion-ai-research-labs',
+        excerpt:
+          'The manifesto for Expansion AI Research Labs: why small local models, curated datasets, narrow specialists, and orchestrated agent systems form our roadmap for building practical AI for business automation.',
+        Image:
+          'https://images.unsplash.com/photo-1451187863213-d1bcbaae3fa3?w=1600&q=80&auto=format&fit=crop',
+        tags: ['research-lab', 'manifesto', 'ai-strategy', 'business-automation'],
+        seoTitle:
+          'Launching Expansion AI Research Labs | Expansion AI Research Labs',
+        seoDescription:
+          'The research thesis behind Expansion AI Research Labs and how small models, data curation, specialization, and orchestration come together into a practical AI roadmap.',
+        authorName: 'Aaron Keating',
+        published: true,
+        publishedAt: new Date('2026-04-01T09:00:00.000Z'),
+        featured: true,
+        contentFormat: 'markdown',
+        body: `# Why This Lab Exists
+
+Expansion AI Research Labs exists because we became convinced of something simple:
+
+the future of useful AI will not be built from hype alone. It will be built from disciplined systems.
+
+Our path into this lab did not begin with a manifesto. It began with a sequence of hard practical questions:
+
+- what can small models actually do on local hardware?
+- what kind of data do we need to make them better?
+- what should be trained into a model versus enforced by software?
+- how do multiple narrow agents coordinate without collapsing into chaos?
+
+Each project we built answered one part of that chain.
+
+This article ties them together.
+
+## Part One: Small Models Made the Vision Plausible
+
+The first breakthrough was not philosophical. It was operational.
+
+We spent real time exploring what small local models could do on hardware in the 16GB VRAM class. That exploration changed our assumptions.
+
+We found that compact models are already useful for:
+
+- structured text transformation
+- extraction and classification
+- workflow triage
+- drafting and summarization
+- narrow code and systems tasks
+- internal business process support
+
+They are not magic. They do not replace architecture. But they are far more capable than many people assume when given clean prompts, narrow roles, and deterministic support.
+
+That work is captured in our first article:
+
+- [What 16GB of VRAM Can Really Do](/research/small-models-16gb-vram-business-automation)
+
+That article is really the spark. It is where the idea of a research lab became economically credible.
+
+## Part Two: Data Became the Bottleneck
+
+Once we accepted that small models were worth serious effort, the next bottleneck became obvious.
+
+If we want domain-focused AI systems, we need domain-focused data.
+
+Not random scraped text.
+
+Not giant undifferentiated corpora.
+
+We need curated, labeled, polished, training-ready material.
+
+That realization led directly to **KnowledgeForge**, our dataset curation project.
+
+Its role is not glamorous, but it is foundational:
+
+- generate crawl plans from research goals
+- ingest from multiple sources
+- transform raw material through curation stages
+- score, deduplicate, and filter samples
+- export training-ready outputs
+
+That work is covered here:
+
+- [KnowledgeForge and the First Real Problem in Any AI Lab](/research/knowledgeforge-data-curation-first-problem-ai-lab)
+
+If the first article is the spark, this project is the furnace.
+
+## Part Three: The Boundary Between Model and System
+
+The third lesson was architectural.
+
+Even with better data, not every capability belongs inside the model.
+
+Some things should be learned internally:
+
+- domain tone
+- task-specific language patterns
+- narrow expertise
+- classification instincts
+
+Other things should remain external and deterministic:
+
+- exact rule application
+- database truth
+- calculations
+- workflow permissions
+- side-effect execution
+
+This became one of the defining principles of the lab:
+
+**Use the model for ambiguity. Use systems for certainty.**
+
+That principle drives our article on specialization and deterministic design:
+
+- [Train the Model or Engineer the System?](/research/train-the-model-or-engineer-the-system-small-llms)
+
+This is also where our interest in liquid-style specialization becomes strategically important. We do not want giant generic intelligence for everything. We want small, high-signal specialists embedded inside strong systems.
+
+## Part Four: Orchestration Makes the Whole Thing Real
+
+Even a curated specialist model is not enough for real-world automation.
+
+Once a task becomes multi-step, tool-driven, or cross-domain, the system needs orchestration.
+
+That means:
+
+- role assignment
+- context budgeting
+- memory management
+- task chunking
+- deterministic checkpoints
+- explicit completion criteria
+
+Without orchestration, local AI stays trapped in single-shot demos.
+
+With orchestration, narrow model competence can be compounded into real systems.
+
+That is the focus of our article on agentic swarms and orchestration:
+
+- [Why Local AI Systems Live or Die by Orchestration](/research/why-local-ai-systems-live-or-die-by-orchestration)
+
+## The Lab Thesis
+
+Taken together, these projects define our thesis:
+
+### 1. Start with efficient local intelligence
+
+Small models matter because they force discipline and make deployment practical.
+
+### 2. Build your own data advantage
+
+The highest leverage asset in a narrow AI system is often not the model. It is the dataset.
+
+### 3. Specialize intentionally
+
+Do not train models to know everything. Train them to excel where latent language capability actually matters.
+
+### 4. Engineer the boundary
+
+Make a clean distinction between what the model infers and what the system proves.
+
+### 5. Orchestrate for reliability
+
+Multi-step business automation depends on context management, routing, validation, and explicit state.
+
+That sequence is the blueprint behind Expansion AI Research Labs.
+
+## What We Want This Lab To Produce
+
+We are not interested in building AI that only impresses in a demo window.
+
+We want to build:
+
+- private automation systems for small and mid-sized businesses
+- narrow expert models trained on curated, high-signal datasets
+- tool-using local agents with reliable orchestration
+- domain-specific systems that are cheaper, faster, and more controllable than generic hosted approaches
+
+That includes both business systems and more experimental creative applications.
+
+For business, that means workflows that reduce manual work without turning operations into probabilistic chaos.
+
+For interactive systems, that means specialist models that feel native to a world or role rather than bolted on from outside it.
+
+## Why Now
+
+This lab makes sense now because three conditions have converged:
+
+- small local models are good enough to be strategically interesting
+- tooling for data curation and orchestration has matured enough to productize
+- businesses increasingly need systems that are private, controllable, and purpose-built
+
+The old assumption was that meaningful AI work required giant infrastructure first.
+
+We think the more interesting path is the opposite:
+
+start smaller,
+get sharper,
+own the data,
+own the orchestration,
+and build systems that solve real work.
+
+## The Road Ahead
+
+Expansion AI Research Labs is not a content category. It is a working roadmap.
+
+The roadmap looks like this:
+
+1. explore what compact local models can do today
+2. build stronger dataset curation pipelines
+3. specialize narrow models with deliberate data
+4. wrap them in deterministic software systems
+5. orchestrate multiple agents into reliable workflows
+
+That is the stack we are building.
+
+If you want to follow the thinking that led here, start with the other articles in this series:
+
+- [What 16GB of VRAM Can Really Do](/research/small-models-16gb-vram-business-automation)
+- [KnowledgeForge and the First Real Problem in Any AI Lab](/research/knowledgeforge-data-curation-first-problem-ai-lab)
+- [Train the Model or Engineer the System?](/research/train-the-model-or-engineer-the-system-small-llms)
+- [Why Local AI Systems Live or Die by Orchestration](/research/why-local-ai-systems-live-or-die-by-orchestration)
+
+This lab is our attempt to turn those ideas into software, data, and systems that matter.
+
+That is the work now.`,
+      },
+    ]
+
+    await db.post.updateMany({
+      data: { featured: false },
+      where: { featured: true },
+    })
+
+    for (const article of researchArticles) {
+      await db.post.upsert({
+        where: { slug: article.slug },
+        update: article,
+        create: article,
+      })
+    }
+    console.log(`Seeded ${researchArticles.length} research articles`)
+
+    // ============================================
     // PROJECT DATA — Mindo (The Medical Independent)
     // ============================================
     const projectDatas = [

@@ -21,7 +21,7 @@ const NAV_ITEMS = [
   { label: '_ABOUT', route: 'about', path: '/about' },
   { label: '_CONTACT', route: 'contactus', path: '/contactus' },
   {
-    label: '_RESEARCH',
+    label: '_AI_LABS',
     route: 'researchLabs',
     path: '/research',
   },
